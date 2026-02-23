@@ -1,0 +1,42 @@
+# types-demo.nest — demonstrate NesT type system
+
+println("=== NesT Type System ===");
+println("");
+
+# The four types
+let an_int = 42;
+let a_float = 3.14;
+let a_str = "hello";
+let a_bool = true;
+
+println("-- Values & Types --");
+println(str(an_int) + " : " + type(an_int));
+println(str(a_float) + " : " + type(a_float));
+println(a_str + " : " + type(a_str));
+println(str(a_bool) + " : " + type(a_bool));
+
+println("");
+println("-- Conversions --");
+let from_str = int("123");
+println("int(\"123\")   = " + str(from_str) + " : " + type(from_str));
+
+let to_float = float(42);
+println("float(42)    = " + str(to_float) + " : " + type(to_float));
+
+let to_str = str(99);
+println("str(99)      = " + to_str + " : " + type(to_str));
+
+println("");
+println("-- String operations --");
+let greeting = "Hello" + ", " + "World!";
+println(greeting);
+println("len = " + str(len(greeting)));
+
+println("");
+println("-- Arithmetic type rules --");
+println("7 / 2        = " + str(7 / 2) + "   (int / int = int)");
+println("7.0 / 2      = " + str(7.0 / 2) + " (float / int = float)");
+println("7 % 3        = " + str(7 % 3));
+
+println("");
+println("=== Done! ===");
