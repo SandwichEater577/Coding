@@ -1,0 +1,287 @@
+<!doctype html>
+<html>
+  <head>
+    <title>YouTube</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./scripts/fake-engine.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="start">
+        <img class="yt-icon" src="./assets/guide.svg" />
+        <img class="logo" src="./assets/logo.svg" />
+      </div>
+      <div class="center middle">
+        <div class="search middle">
+          <input type="text" placeholder="Szukaj" />
+        </div>
+        <button>
+          <img class="yt-icon" src="./assets/search.svg" />
+        </button>
+      </div>
+      <div class="end middle">
+        <img class="yt-icon" src="./assets/create.svg" />
+        <img class="yt-icon" src="./assets/notification.svg" />
+        <img class="avatar small" src="./assets/johndoe.jpg" />
+      </div>
+    </nav>
+    <main class="middle">
+      <div>
+        <section class="primary">
+          <!---->
+          <div id="video-wrapper" class="video-wrapper">
+            <video id="video" src="assets/dreamybull.mp4"></video>
+            <div id="player" class="player">
+              <div id="bar-wrapper" class="bar-wrapper">
+                <div class="bar">
+                  <div id="watch-progress" class="watch-progress">
+                    <div class="ball"></div>
+                  </div>
+                  <div class="buffer-progress"></div>
+                </div>
+              </div>
+
+              <div class="controlls">
+                <div class="start">
+                  <button id="play-button" class="controll">
+                    <img
+                      id="play-icon"
+                      src="./assets/play.svg"
+                      class="yt-icon largest"
+                    />
+                  </button>
+                  <button id="next" class="controll">
+                    <img src="./assets/next.svg" class="yt-icon largest" />
+                  </button>
+                  <div class="volume-panel">
+                    <button class="controll">
+                      <img src="./assets/volume.svg" class="yt-icon largest" />
+                    </button>
+                    <div class="slider">
+                      <input
+                        id="volume-input"
+                        type="range"
+                        min="0"
+                        max="1"
+                        step="0.05"
+                        value="1"
+                      />
+                    </div>
+                  </div>
+                  <div class="time">
+                    <span id="current-time">0:00</span>
+                    <span>/</span>
+                    <span id="duration-time">0:00</span>
+                  </div>
+                </div>
+                <div class="end">
+                  <button class="controll">
+                    <img
+                      src="./assets/adnotation.svg"
+                      class="yt-icon largest"
+                    />
+                  </button>
+                  <button id="config-button" class="controll">
+                    <img src="./assets/config.svg" class="yt-icon largest" />
+                  </button>
+                  <button id="adnotation-button" class="controll">
+                    <img
+                      src="./assets/miniplayer.svg"
+                      class="yt-icon largest"
+                    />
+                  </button>
+                  <button id="cinema-button" class="controll">
+                    <img src="./assets/cinema.svg" class="yt-icon largest" />
+                  </button>
+                  <button id="fullscreen" class="controll">
+                    <img
+                      src="./assets/fullscreen.svg"
+                      class="yt-icon largest"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="popup-config" class="popup" hidden>
+              <button class="option">
+                <div>
+                  <img class="yt-icon" src="./assets/adnotation-option.svg" />
+                  <span>Adnotacje</span>
+                </div>
+                <div></div>
+              </button>
+              <button id="config-tempo-button" class="option">
+                <div>
+                  <img class="yt-icon" src="./assets/speed.svg" />
+                  <span>Prędkość odtwarzania</span>
+                </div>
+                <div></div>
+              </button>
+              <button class="option">
+                <div>
+                  <img class="yt-icon" src="./assets/quality.svg" />
+                  <span>Jakość</span>
+                </div>
+                <div></div>
+              </button>
+            </div>
+            <div id="popup-tempo" class="popup speed large" hidden>
+              <button class="option" data-tempo="0.25">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>0.25</span>
+                </div>
+              </button>
+              <button class="option" data-tempo="0.5">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>0.5</span>
+                </div>
+              </button>
+              <button class="option" data-tempo="0.75">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>0.75</span>
+                </div>
+              </button>
+              <button class="option checked" data-tempo="1">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>Normalna</span>
+                </div>
+              </button>
+              <button class="option" data-tempo="1.25">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>1.25</span>
+                </div>
+              </button>
+              <button class="option" data-tempo="1.5">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>1.5</span>
+                </div>
+              </button>
+              <button class="option" data-tempo="1.75">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>1.75</span>
+                </div>
+              </button>
+              <button class="option" data-tempo="2">
+                <div>
+                  <img class="yt-icon" src="./assets/checked.svg" />
+                  <span>2</span>
+                </div>
+              </button>
+            </div>
+            <div id="shadow" class="shadow"></div>
+          </div>
+          <!-- -->
+          <div class="watch-metadata">
+            <h1>Jakiś fajny tytuł filmu</h1>
+            <div class="stats">
+              <span class="views">54 952 wyświetlenia</span>
+              <span class="date">12 sie 2022</span>
+              <span class="description text gray"
+                >Jednym z największych problemów dzisiejszych komputerów jest
+                to, że podczas pracy nagrzewają się, przez co trzeba stosować
+                zaawansowane systemy...</span
+              >
+            </div>
+            <div class="actions">
+              <div class="action like">
+                <img class="yt-icon large" src="./assets/like.svg" />
+                <span>1,3 tys.</span>
+              </div>
+              <div class="action unlike">
+                <img class="yt-icon large" src="./assets/unlike.svg" />
+                <span>Nie podoba mi się</span>
+              </div>
+              <div class="action share">
+                <img class="yt-icon large" src="./assets/share.svg" />
+                <span>Udostępnij</span>
+              </div>
+              <div class="action download">
+                <img class="yt-icon large" src="./assets/download.svg" />
+                <span>Pobierz</span>
+              </div>
+            </div>
+          </div>
+          <div class="other-metadata">
+            <div class="channel frame">
+              <img class="avatar middle" src="./assets/johndoe.jpg" />
+              <div class="info">
+                <span class="name">John Doe</span>
+                <span class="text gray small">655 tys. subskrypcji</span>
+              </div>
+              <button class="subscribe">Subskrybuj</button>
+              <img class="yt-icon large" src="./assets/bell.svg" />
+            </div>
+          </div>
+          <div class="comment-wrapper">
+            <div class="title">
+              <span class="comments-count text large">238 komentarzy</span>
+              <div class="sort">
+                <img class="yt-icon" src="./assets/dropdown.svg" />
+                <span>Sortuj według</span>
+              </div>
+            </div>
+            <div class="add-comment">
+              <img class="avatar large" src="./assets/johndoe.jpg" />
+              <input type="text" placeholder="Dodaj komentarz" />
+            </div>
+            <div class="comments">
+              <div class="comment">
+                <img
+                  class="avatar large"
+                  src="https://yt3.ggpht.com/ytc/AMLnZu8M3oa2DpUA745o79ia0FUTtmsSiXWd2GvzpdWSUw=s88-c-k-c0x00ffffff-no-rj"
+                />
+                <div class="details">
+                  <div class="header">
+                    <b class="nickname">Jo Hawes</b>
+                    <span class="text gray small">1 rok temu</span>
+                  </div>
+                  <span class="content"> Bardzo ciekawy filmik! </span>
+                  <div class="actions">
+                    <div class="action like">
+                      <img class="yt-icon small" src="./assets/like.svg" />
+                      <span class="text small gray">176</span>
+                    </div>
+                    <div class="action unlike">
+                      <img class="yt-icon small" src="./assets/unlike.svg" />
+                    </div>
+                    <div class="action answear">
+                      <button class="not-fill">Odpowiedz</button>
+                    </div>
+                  </div>
+                  <div class="more">
+                    <img class="yt-icon medium" src="./assets/more.svg" />
+                    <span>4 odpowiedzi</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="sidebar">
+          <div id="recommendations" class="recommendations"></div>
+        </section>
+      </div>
+    </main>
+  </body>
+  <script src="./scripts/player.js"></script>
+</html>
