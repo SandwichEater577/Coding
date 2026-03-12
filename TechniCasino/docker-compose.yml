@@ -1,0 +1,49 @@
+services:
+  # ── PostgreSQL ──
+  postgres:
+    image: postgres:17-alpine
+    container_name: technicasino-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: technicasino
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: technicasino
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./database/migrations:/docker-entrypoint-initdb.d
+
+  # ── Redis ──
+  redis:
+    image: redis:7-alpine
+    container_name: technicasino-cache
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  # ── Backend (Rust) ──
+  # backend:
+  #   build: ./backend
+  #   container_name: technicasino-api
+  #   restart: unless-stopped
+  #   ports:
+  #     - "8080:8080"
+  #   env_file: .env
+  #   depends_on:
+  #     - postgres
+  #     - redis
+
+  # ── Frontend (Vite dev server) ──
+  # frontend:
+  #   build: ./frontend
+  #   container_name: technicasino-web
+  #   ports:
+  #     - "5173:5173"
+  #   env_file: .env
+
+volumes:
+  pgdata:
+  redisdata:
