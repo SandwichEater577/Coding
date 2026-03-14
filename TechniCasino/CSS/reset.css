@@ -1,20 +1,4 @@
 /*=========
- Variables
-=========*/
-
-:root {
-  --casino-font: "Cinzel", Arial, sans-serif;
-}
-
-/*=============
- Global Styles
-=============*/
-
-main > h1 {
-  font-family: var(--casino-font);
-}
-
-/*=========
  Reset CSS
 =========*/
 

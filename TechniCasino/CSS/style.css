@@ -1,0 +1,26 @@
+/*=========
+ Variables
+=========*/
+
+:root {
+  --casino-font: "Cinzel", Arial, sans-serif;
+}
+
+/*=============
+ Global Styles
+=============*/
+
+body {
+  background: linear-gradient(270deg, #ffa200 10%, #1d7b20 90%);
+}
+
+.site-logo {
+  width: 100px;
+  height: 100px;
+  padding: 0% 10% 10% 10%;
+}
+
+#site-header > nav {
+  display: flex;
+  flex-direction: row;
+}

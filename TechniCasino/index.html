@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="CSS/reset.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,10 +14,41 @@
     <title>TechniCasino</title>
   </head>
   <body>
-    <header></header>
-    <main>
-      <h1>TechniCasino</h1>
-    </main>
-    <footer></footer>
+    <header id="site-header" class="header">
+      <!-- Header Navigation -->
+      <nav id="main-nav" class="nav">
+        <div id="nav-left" class="nav-section nav-left">
+          <div id="logo-container" class="logo-container">
+            <a href="/TechniCasino/index.html" id="logo-link" class="logo-link">
+              <svg id="site-logo" class="site-logo" viewBox="0 0 285 285">
+                <path
+                  d="M13.14 46v239h240V46Zm224 223h-49v-17h33v-16H78v16h94.14v17h-143v-73h17v56h16v-91h-16v19h-17V62h144v15h-96v16h128v96h16V77h-32V62h48Z"
+                ></path>
+                <path
+                  d="M162 145v16h-18.14v59H78.14V110H128v16H94.14v78h33.72v-43H110v-16h52z"
+                ></path>
+                <path
+                  d="M221 204v16h-63v-16h14.14v-78h-29.26v-16H188v12h.14v82H221zM46.14 77h16v68h-16zM373.63"
+                ></path>
+              </svg>
+            </a>
+          </div>
+          <h1 id="main-title" class="site-title">TechniCasino</h1>
+        </div>
+        <div id="nav-right" class="nav-section nav-right">
+          <a href="#games" id="nav-games" class="nav-link"
+            ><span class="nav-text">Games</span></a
+          >
+          <a href="#login" id="nav-login" class="nav-link"
+            ><span class="nav-text">login</span></a
+          >
+          <a href="#join" id="nav-join" class="nav-link"
+            ><span class="nav-text">join</span></a
+          >
+        </div>
+      </nav>
+    </header>
+    <main id="site-main" class="main-content"></main>
+    <footer id="site-footer" class="footer"></footer>
   </body>
 </html>
