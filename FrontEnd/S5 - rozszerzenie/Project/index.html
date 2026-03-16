@@ -3,89 +3,91 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="Assets/reset.css" />
+    <link rel="stylesheet" href="Assets/style.css" />
+    <script src="script.js" defer></script>
+    <title>TechniHack</title>
   </head>
 
   <body>
-    <header id="topbar">
-      <div id="logo">
-        <span id="logo-text">TechniHack</span>
+    <header class="header" id="header">
+      <div class="logo" id="logo">
+        <span class="logo-text">TechniHack</span>
       </div>
-      <div id="system-stats">
-        <div class="stat" id="stat-ip">
+      <div class="system-stats" id="systemStats">
+        <div class="stat" id="statIp">
           <span class="stat-label">IP:</span>
-          <span>0.0.0.0</span>
+          <span id="ipAddress">0.0.0.0</span>
         </div>
-        <div class="stat" id="stat-trace">
-          <span class="stat-label">Trace:</span>
-          <span>0.0.0.0</span>
+        <div class="stat" id="statTrace">
+          <span class="stat-label">TRACE:</span>
+          <span id="traceStatus">UNACTIVE</span>
         </div>
-        <div class="stat" id="stat-level">
-          <span class="stat-label">Level:</span>
+        <div class="stat" id="statLevel">
+          <span class="stat-label">LEVEL:</span>
           <span>0</span>
         </div>
       </div>
-      <div id="clock">
-        <div id="clock-date">Date:</div>
-        <div id="clock-sep">Dot</div>
-        <div id="clock-time">Time:</div>
+      <div class="clock" id="clock">
+        <div class="clock-date" id="clockDate">YYYY.MM.DD</div>
+        <div class="clock-separator" id="clockSeparator">-</div>
+        <div class="clock-time" id="clockTime">HH:MM:SS</div>
       </div>
     </header>
-    <main id="app">
-      <nav id="sidebar">
-        <div id="sidebar-heading">Misje</div>
-        <div id="mission-list">
-          <div class="mission mission--done" id="mission-1">01 - Tutorial</div>
-          <div class="mission mission--active" id="mission-2">
-            02 - Alpha007
-          </div>
-          <div class="mission mission--locked" id="mission-3">
-            03 - Nexus-DB
-          </div>
-          <div class="mission mission--locked" id="mission-4">
+    <main class="main-content" id="mainContent">
+      <nav class="sidebar" id="sidebar">
+        <div class="sidebar-heading" id="sidebarHeading">Misje</div>
+        <div class="mission-list" id="missionList">
+          <div class="mission mission--done" id="mission1">01 - Tutorial</div>
+          <div class="mission mission--active" id="mission2">02 - Alpha007</div>
+          <div class="mission mission--locked" id="mission3">03 - Nexus-DB</div>
+          <div class="mission mission--locked" id="mission4">
             04 - Ghost-Net
           </div>
         </div>
-        <div id="progress-panel">
-          <div class="progress-row" id="progress-mission">
-            <!--'Postep misji' i progress bar-->
+        <div class="progress-panel" id="progressPanel">
+          <div class="progress-row" id="progressMission">
             <span class="progress-label">postep</span>
           </div>
-          <div class="progress-row" id="progress-time">
-            <!--'Saldo Czasu' i progress bar-->
+          <div class="progress-row" id="progressTime">
             <span class="progress-label">saldo</span>
           </div>
         </div>
       </nav>
-      <div id="terminal">
-        <div id="output"><span>OutPut</span></div>
-        <div id="input-bar"><span>InPut</span></div>
-        <div id="shortcuts">
-          <div class="shortcut" id="shortcut-tab">
+      <div class="terminal" id="terminal">
+        <div class="terminal-output output-container" id="terminalOutput">
+          <span class="output-text"></span>
+        </div>
+        <div class="input-bar" id="inputBar">
+          <input type="text" aria-label="terminal input" />
+        </div>
+        <div class="shortcuts" id="shortcuts">
+          <div class="shortcut" id="shortcutTab">
             <div class="shortcut-key">TAB</div>
-            <div class="shortcut-desc"><span>autocomplete</span></div>
+            <div class="shortcut-desc"><span>Autocomplete</span></div>
           </div>
-          <div class="shortcut" id="shortcut-history">
-            <div class="shortcut-key">up&amp;&amp;down</div>
-            <div class="shortcut-desc"><span>history</span></div>
+          <div class="shortcut" id="shortcutHistory">
+            <div class="shortcut-key">↑↓</div>
+            <div class="shortcut-desc"><span>History</span></div>
           </div>
-          <div class="shortcut" id="shortcut-restart">
-            <div class="shortcut-key">CTRL+R</div>
+          <div class="shortcut" id="shortcutRestart">
+            <div class="shortcut-key">
+              <span>Undefined</span>+<span>Space</span>
+            </div>
             <div class="shortcut-desc"><span>Restart</span></div>
           </div>
-          <div class="shortcut" id="shortcut-cashout">
-            <div class="shortcut-key">CTRL+Space</div>
+          <div class="shortcut" id="shortcutCashout">
+            <div class="shortcut-key">
+              <span>Undefined</span>+<span>R</span>
+            </div>
             <div class="shortcut-desc"><span>CrashOut</span></div>
           </div>
-          <div class="shortcut" id="shortcut-help">
-            <div class="shortcut-key">?</div>
+          <div class="shortcut" id="shortcutHelp">
+            <div class="shortcut-key">--help</div>
             <div class="shortcut-desc"><span>Help</span></div>
           </div>
         </div>
       </div>
     </main>
   </body>
-  <script></script>
 </html>
