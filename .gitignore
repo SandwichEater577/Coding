@@ -27,3 +27,10 @@ yarn-error.log*
 dist/
 build/
 /.cachePolski/
+
+# Unity (generated)
+**/[Ll]ibrary/
+**/[Tt]emp/
+**/[Ll]ogs/
+**/[Oo]bj/
+**/[Uu]ser[Ss]ettings/

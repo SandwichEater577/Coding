@@ -17,8 +17,20 @@
     // Liczenie od 1 do 10;
     //println!("=== Liczenie ===");
     //for i in 1..=10 {;
-     //   println!("Liczba: {}", i);
+    //   println!("Liczba: {}", i);
     //};
+
+    //Liczba: 1
+    //Liczba: 2
+    //Liczba: 3
+    //Liczba: 4
+    //Liczba: 5
+    //Liczba: 6
+    //Liczba: 7
+    //Liczba: 8
+    //Liczba: 9
+    //Liczba: 10
+
 
     // Tabliczka mnożenia dla 7;
     //println!("\n=== Tabliczka mnożenia: 7 ===");
