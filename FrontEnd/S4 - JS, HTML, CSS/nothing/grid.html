@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="grid">
+        <div id="a"></div>
+        <div id="b"></div>
+        <div id="c"></div>
+        <div id="d"></div>
+        <div id="e"></div>
+      </div>
+      <div id="f"></div>
+      <div id="g"></div>
+      <div id="h"></div>
+      <div id="i"></div>
+      <div id="j"></div>
+      <div id="k"></div>
+      <div id="l"></div>
+      <div id="m"></div>
+      <div id="n"></div>
+      <div id="o"></div>
+      <div id="p"></div>
+      <div id="q"></div>
+      <div id="r"></div>
+      <div id="s"></div>
+      <div id="t"></div>
+      <div id="u"></div>
+      <div id="v"></div>
+      <div id="w"></div>
+      <div id="x"></div>
+      <div id="y"></div>
+      <div id="z"></div>
+    </div>
+  </body>
+  <style>
+    #wrapper {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 10px;
+    }
+    #grid > div {
+      background-color: lightblue;
+    }
+  </style>
+</html>
