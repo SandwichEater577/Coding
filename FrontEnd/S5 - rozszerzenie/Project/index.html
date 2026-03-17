@@ -38,12 +38,18 @@
       <nav class="sidebar" id="sidebar">
         <div class="sidebar-heading" id="sidebarHeading">Misje</div>
         <div class="mission-list" id="missionList">
-          <div class="mission mission--done" id="mission1">01 - Tutorial</div>
-          <div class="mission mission--active" id="mission2">02 - Alpha007</div>
-          <div class="mission mission--locked" id="mission3">03 - Nexus-DB</div>
-          <div class="mission mission--locked" id="mission4">
-            04 - Ghost-Net
-          </div>
+          <button class="mission mission--active" id="mission1">
+            <span>01 - Tutorial</span>
+          </button>
+          <button class="mission mission--locked" id="mission2">
+            <span>02 - Alpha007</span>
+          </button>
+          <button class="mission mission--locked" id="mission3">
+            <span>03 - Nexus-DB</span>
+          </button>
+          <button class="mission mission--locked" id="mission4">
+            <span>04 - Ghost-Net</span>
+          </button>
         </div>
         <div class="progress-panel" id="progressPanel">
           <div class="progress-row" id="progressMission">
@@ -56,7 +62,7 @@
       </nav>
       <div class="terminal" id="terminal">
         <div class="terminal-output output-container" id="terminalOutput">
-          <span class="output-text"></span>
+          <span class="output-text" id="outputText"></span>
         </div>
         <div class="input-bar" id="inputBar">
           <input type="text" aria-label="terminal input" />
@@ -72,13 +78,13 @@
           </div>
           <div class="shortcut" id="shortcutRestart">
             <div class="shortcut-key">
-              <span>Undefined</span>+<span>Space</span>
+              <span class="mac-or-win-span">Undefined</span>+<span>Space</span>
             </div>
             <div class="shortcut-desc"><span>Restart</span></div>
           </div>
           <div class="shortcut" id="shortcutCashout">
             <div class="shortcut-key">
-              <span>Undefined</span>+<span>R</span>
+              <span class="mac-or-win-span">Undefined</span>+<span>R</span>
             </div>
             <div class="shortcut-desc"><span>CrashOut</span></div>
           </div>

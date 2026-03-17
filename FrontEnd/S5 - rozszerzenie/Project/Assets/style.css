@@ -1,14 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap");
 
 :root {
-  --bg: #07110b;
-  --line: #145338;
+  --bg: #0a0f0a;
+  --line: #00b85f;
   --line-strong: #21c07f;
-  --text: #2ee09a;
-  --text-dim: #2a8e64;
+  --text: #00ff88;
+  --text-dim: #00b85f;
   --text-soft: #71cfa2;
   --radius: 12px;
   --pad: 16px;
+  --error: #ff4444;
+  --warning: #ffcc00;
+  --info: #88ccff;
 }
 
 body {
@@ -142,6 +145,15 @@ body {
   white-space: nowrap;
 }
 
+.clock-date,
+.clock-time {
+  color: var(--text-soft);
+}
+
+.clock-separator {
+  color: var(--text-dim);
+}
+
 #app,
 #mainContent,
 .main-content {
@@ -177,13 +189,20 @@ body {
 }
 
 .mission {
+  width: 100%;
   min-height: 52px;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 var(--pad);
   font-size: 1.1rem;
   text-transform: uppercase;
   border-left: 4px solid transparent;
+  color: inherit;
+  cursor: pointer;
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease;
 }
 
 .mission--done {
@@ -286,6 +305,15 @@ body {
   color: var(--text-soft);
 }
 
+.output-container {
+  display: block;
+}
+
+.output-text {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
 #input-bar,
 #inputBar,
 .input-bar {
@@ -309,6 +337,12 @@ body {
   font: inherit;
 }
 
+#input-bar input::placeholder,
+#inputBar input::placeholder,
+.input-bar input::placeholder {
+  color: #2ba575;
+}
+
 #shortcuts,
 .shortcuts {
   min-height: 48px;
@@ -327,6 +361,10 @@ body {
   white-space: nowrap;
   color: #00d67f;
   font-size: 0.95rem;
+}
+
+.shortcut-desc {
+  color: var(--text-soft);
 }
 
 .shortcut-key {
