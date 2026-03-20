@@ -198,7 +198,7 @@ body {
   font-size: 1.1rem;
   text-transform: uppercase;
   border-left: 4px solid transparent;
-  color: inherit;
+  color: #197049;
   cursor: pointer;
   transition:
     background-color 0.18s ease,
@@ -221,6 +221,14 @@ body {
   color: #197049;
 }
 
+/* Active state must win even if element is also marked as locked. */
+.mission.mission--active,
+.mission--locked.mission--active {
+  background: rgba(0, 255, 136, 0.18);
+  border-left-color: var(--line-strong);
+  color: #00fca0;
+}
+
 #progress-panel,
 #progressPanel,
 .progress-panel {
@@ -240,6 +248,28 @@ body {
   text-transform: uppercase;
   font-size: 1rem;
   color: var(--text-soft);
+}
+
+.progress-track {
+  display: block;
+  height: 8px;
+  border-radius: 999px;
+  background: #063920;
+  box-shadow: inset 0 0 0 1px #0b4f32;
+  overflow: hidden;
+}
+
+.progress-fill {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: #05f188;
+  transition: width 0.28s ease;
+}
+
+#progressTimeFill {
+  background: #f3cf29;
 }
 
 #progress-mission::after,
@@ -273,23 +303,43 @@ body {
   position: relative;
 }
 
+#progressMission::before,
+#progressMission::after,
+#progressTime::before,
+#progressTime::after {
+  content: none;
+}
+
+#progress-mission,
+#progressMission {
+  --fill: 67%;
+}
+
+#progress-time,
+#progressTime {
+  --fill: 45%;
+}
+
 #progress-mission::before,
 #progressMission::before {
-  width: 67%;
+  width: var(--fill, 67%);
   bottom: 0;
   left: 0;
+  transition: width 0.28s ease;
 }
 
 #progress-time::before,
 #progressTime::before {
-  width: 45%;
+  width: var(--fill, 45%);
   bottom: 0;
   left: 0;
   background: #f3cf29;
+  transition: width 0.28s ease;
 }
 
 #terminal {
   min-width: 0;
+  min-height: 0;
   display: grid;
   grid-template-rows: 1fr auto auto;
 }
@@ -297,12 +347,131 @@ body {
 #output,
 #terminalOutput,
 .terminal-output {
+  min-height: 0;
+  max-width: 100%;
   padding: 18px 20px;
   border-bottom: 1px solid var(--line);
-  overflow: auto;
+  overflow: hidden;
   line-height: 1.45;
   font-size: 1.05rem;
   color: var(--text-soft);
+}
+
+#terminalOutput > *,
+.terminal-output > * {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.terminal-line {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.terminal-stage {
+  max-width: 100%;
+  display: grid;
+  gap: 10px;
+  font-size: clamp(0.95rem, 1.3vw, 1.35rem);
+}
+
+.terminal-stage-head,
+.terminal-stage-meta,
+.terminal-stage-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.terminal-stage-head {
+  color: var(--line);
+}
+
+.terminal-stage-meta {
+  color: var(--info);
+}
+
+.terminal-stage-body {
+  color: var(--text-soft);
+}
+
+.glitch-burst {
+  animation: ui-glitch-burst 0.38s steps(2, end);
+}
+
+#terminal.glitch-burst,
+.terminal.glitch-burst {
+  animation: terminal-flicker 0.5s linear;
+}
+
+@keyframes ui-glitch-burst {
+  0% {
+    transform: translate(0, 0);
+    text-shadow: none;
+    filter: none;
+  }
+
+  25% {
+    transform: translate(-1px, 0);
+    text-shadow:
+      1px 0 #00ffff,
+      -1px 0 #ff00ff;
+    filter: contrast(1.08);
+  }
+
+  50% {
+    transform: translate(1px, 0);
+    text-shadow:
+      -1px 0 #00ffff,
+      1px 0 #ff00ff;
+    filter: saturate(1.18);
+  }
+
+  75% {
+    transform: translate(-1px, 1px);
+    text-shadow:
+      1px 0 #00ffff,
+      -1px 0 #ff00ff;
+    filter: contrast(1.15);
+  }
+
+  100% {
+    transform: translate(0, 0);
+    text-shadow: none;
+    filter: none;
+  }
+}
+
+@keyframes terminal-flicker {
+  0%,
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  20% {
+    opacity: 0.88;
+    filter: brightness(1.2);
+  }
+
+  40% {
+    opacity: 0.95;
+    filter: contrast(1.14);
+  }
+
+  60% {
+    opacity: 0.9;
+    filter: brightness(0.92);
+  }
+
+  80% {
+    opacity: 0.97;
+    filter: contrast(1.1);
+  }
 }
 
 .output-container {
@@ -442,8 +611,38 @@ body {
   }
 
   #sidebar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "heading heading"
+      "missions progress";
+    align-items: start;
+    gap: 0;
     border-right: none;
     border-bottom: 1px solid var(--line);
+  }
+
+  #sidebar-heading,
+  #sidebarHeading,
+  .sidebar-heading {
+    grid-area: heading;
+  }
+
+  #mission-list,
+  #missionList,
+  .mission-list {
+    grid-area: missions;
+    border-right: 1px solid var(--line);
+    padding: 6px 0;
+  }
+
+  #progress-panel,
+  #progressPanel,
+  .progress-panel {
+    grid-area: progress;
+    margin-top: 0;
+    border-top: none;
+    padding-top: 12px;
   }
 
   #terminal,
@@ -500,6 +699,27 @@ body {
     font-size: 0.9rem;
   }
 
+  #system-stats,
+  #systemStats,
+  .system-stats {
+    gap: 8px;
+    font-size: 0.86rem;
+  }
+
+  .stat {
+    gap: 6px;
+  }
+
+  #sidebar {
+    display: block;
+  }
+
+  #mission-list,
+  #missionList,
+  .mission-list {
+    border-right: none;
+  }
+
   #app,
   #mainContent,
   .main-content {
@@ -531,6 +751,17 @@ body {
   .terminal-output {
     padding: 12px;
     font-size: 0.92rem;
+  }
+
+  .terminal-stage {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .terminal-stage-head,
+  .terminal-stage-meta,
+  .terminal-stage-body {
+    gap: 3px;
   }
 
   #input-bar,

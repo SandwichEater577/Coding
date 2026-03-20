@@ -1,107 +1,127 @@
-# TechniHack — Notatki do obrony projektu
+# TechniHack - Q&A do obrony (trudne pytania)
 
-Ten plik jest przygotowany pod obronę ustną projektu: zawiera możliwe trudniejsze pytania i krótkie odpowiedzi oparte na aktualnym kodzie.
+Ten README jest celowo w formie pytań i odpowiedzi pod obronę projektu.
+Zakres: tylko to, co realnie jest w `index.html`, `Assets/style.css`, `Assets/reset.css`, `js/data.js`, `js/ui.js`, `js/commands.js`, `js/main.js`.
 
-## 1) Architektura całości
+## HTML (`index.html`)
 
-### P: Dlaczego na `body` jest `display: grid` z `grid-template-rows: auto 1fr`?
+### P: Czemu skrypty są wpięte z atrybutem `defer` i rozbite na pliki?
 
-**O:** Taki układ tworzy stałą górną sekcję (`header`) i elastyczną część główną (`main`), która wypełnia resztę wysokości okna. `auto` dopasowuje wysokość nagłówka do treści, a `1fr` zajmuje pozostałe miejsce.
+**O:** `defer` gwarantuje niewstrzymywanie parsowania HTML - przeglądarka buduje najpierw DOM. Dodatkowo skrypty wykonują się w kolejności w jakiej zostały dodane do strony (najpierw dane i UI, w końcu main ze zdarzeniami). Dzięki temu unikamy konfliktów oraz zyskujemy mniejsze i bardziej czytelne pliki.
 
-### P: Dlaczego w selektorach są jednocześnie ID i klasy (np. `#header, .header`)?
+### P: Po co `aria-label="terminal input"` na `<input>`?
 
-**O:** HTML był refaktoryzowany. Obsługa obu sposobów nazewnictwa utrzymuje stabilne style po zmianach ID/klas i zapobiega „rozsypaniu” widoku podczas iteracji.
+**O:** To poprawia dostępność dla czytników ekranu. Input nie ma widocznego `<label>`, więc `aria-label` dostarcza nazwę kontrolki technologii asystującej.
 
-### P: Po co zmienne CSS w `:root` (`--bg`, `--line` itd.)?
+### P: Dlaczego struktura layoutu to `header + main`, a nie wszystko w samych `div`?
 
-**O:** Centralizują wartości motywu. Zmiana jednej zmiennej aktualizuje wszystkie miejsca użycia, więc łatwiej utrzymać spójność i później rozwijać projekt.
+**O:** To semantyka HTML5. `header` komunikuje sekcję nagłówkową aplikacji, `main` zawiera główną treść. Pomaga to w dostępności, SEO i czytelności architektury.
 
-## 2) Responsywność (RWD)
+### P: Czemu elementy mają jednocześnie klasy i ID?
 
-### P: Dlaczego są dwa breakpointy (`1024px` i `700px`)?
+**O:** ID są wygodne dla JS (`#clockTime`, `#mission1`), klasy do wielokrotnego stylowania (`.mission`, `.shortcut`). To rozdział odpowiedzialności: JS targetuje unikalne punkty, CSS obsługuje wzorce.
 
-**O:** `1024px` obsługuje tablet/mniejsze laptopy, a `700px` telefony. Dzięki temu nie ma jednego „zbyt ogólnego” trybu mobile i elementy pozostają czytelne w obu zakresach.
+### P: Czemu w terminalu output jest `div`, a nie np. `p`?
 
-### P: Dlaczego na `body` jest `overflow: auto`, a nie `hidden`?
+**O:** Zawartość jest wielowierszowa i składa się z grup statusów systemowych. `div` daje pełną kontrolę blokową i łatwiejsze składanie sekcji pseudo-terminala.
 
-**O:** Na małych ekranach `hidden` może ucinać treść i blokować dostęp do części interfejsu. `auto` pozwala przewijać, gdy to konieczne.
+## CSS (`Assets/style.css`)
 
-### P: Dlaczego skróty na małych ekranach przechodzą z jednego wiersza do wielu?
+### P: Czemu layout główny jest na `body` jako grid: `grid-template-rows: auto 1fr`?
 
-**O:** `flex-wrap: wrap` przy `max-width: 700px` zapobiega wychodzeniu „chipów” poza ekran i poprawia dostępność bez wymuszania poziomego scrolla.
+**O:** `auto` dopasowuje wysokość nagłówka do treści, `1fr` bierze resztę ekranu dla części roboczej. To prosty i stabilny wzorzec „stała góra + elastyczny dół”.
 
-## 3) Decyzje CSS na poziomie komponentów
+### P: Czemu jest tyle selectorów łączonych, np. `#header, .header`?
 
-### P: Co daje `min-width: 0` na `#terminal`?
+**O:** To warstwa kompatybilności po refaktorach nazw. Chroni UI przed regresją, jeśli w HTML użyta jest wersja klasowa lub ID. Cena: większa złożoność CSS.
 
-**O:** W grid/flex dzieci potrafią się przelewać, gdy domyślnie mają `min-width: auto`. `min-width: 0` pozwala im poprawnie się zwężać w kolumnie.
+### P: Po co `min-width: 0` na `#terminal`?
 
-### P: Dlaczego `.mission--active` ma jednocześnie tło i lewą obwódkę?
+**O:** W grid/flex dzieci domyślnie nie zawsze chcą się zwężać (`min-width: auto`). `min-width: 0` pozwala terminalowi realnie się kurczyć i zapobiega overflow poziomemu.
 
-**O:** To podwójny sygnał stanu aktywnego: wyraźny blok + marker krawędzi, dzięki czemu szybciej widać, która misja jest aktualna.
+### P: Jak zrobione są paski postępu bez dodatkowych elementów HTML?
 
-### P: Jak działają paski postępu bez dodatkowych elementów HTML?
+**O:** Tor paska jest rysowany przez `::after`, a wypełnienie przez `::before`. `#progressMission::before { width: 67%; }` i `#progressTime::before { width: 45%; }` określa aktualny poziom.
 
-**O:** `::after` rysuje tor paska, a `::before` rysuje wypełnienie. Szerokości (`67%`, `45%`) reprezentują wartość postępu.
+### P: Dlaczego są dwa breakpointy: `1024px` i `700px`?
 
-### P: Dlaczego input ma `background: transparent; color: inherit; font: inherit; border: none`?
+**O:** `1024px` to „tablet/laptop compact”, gdzie header przechodzi na 2 kolumny i stats schodzą niżej. `700px` to telefon, gdzie układ jest jednokolumnowy, mniejsze fonty i skróty (`shortcuts`) zawijają się (`flex-wrap: wrap`).
 
-**O:** Dzięki temu pole `<input>` wizualnie wtapia się w terminalowy motyw, ale nadal pozostaje semantycznym i poprawnym elementem formularza.
+### P: Czemu input dziedziczy styl (`color: inherit; font: inherit`) i ma transparentne tło?
 
-## 4) Logika zegara w JavaScript
+**O:** Dzięki temu input wygląda jak część terminala, a nie osobny „webowy” komponent. Nadal jest to poprawny semantycznie input formularza.
 
-### P: Dlaczego elementy są pobierane na górze pliku (`clockDateElement`, `clockTimeElement`)?
+### P: Co jest „trudne” w animacji `logo-glitch`?
 
-**O:** Unikamy ponownych zapytań do DOM co sekundę. Kod jest czytelniejszy i minimalnie wydajniejszy.
+**O:** Keyframes są celowo nieregularne (np. 72.4%, 73.1%, 79.3%, 92.7%), więc glitch wygląda mniej mechanicznie. To bardziej wiarygodny efekt niż idealnie równy rytm.
 
-### P: Dlaczego w `formatClockDate` i `formatClockTime` jest ręczne dopełnianie zer?
+## Reset (`Assets/reset.css`)
 
-**O:** Żeby wymusić stały format 2-cyfrowy (`01`, `09` itd.) dla miesiąca/dnia/godziny/minuty/sekundy — to daje stabilny wygląd i przewidywalny format.
+### P: Po co reset z `* { margin: 0; padding: 0; box-sizing: border-box; }`?
 
-### P: Dlaczego `updateClock()` jest wywoływane raz przed `setInterval`?
+**O:** Usuwa różnice domyślnych stylów przeglądarek i upraszcza obliczanie rozmiarów. `border-box` powoduje, że padding i border liczą się do deklarowanej szerokości/wysokości.
 
-**O:** Bez pierwszego wywołania placeholdery byłyby widoczne przez ~1 sekundę. Pierwsze wywołanie natychmiast pokazuje aktualny czas.
+### P: Czy `body { background: rgb(100, 155, 100); }` w reset.css nie konfliktuje ze style.css?
 
-### P: Po co warunki `if (clockDateElement)` i `if (clockTimeElement)`?
+**O:** Konflikt jest zamierzony i bezpieczny. W `style.css` później ustawiane jest `background: var(--bg)`, więc finalnie wygrywa styl z pliku ładowanego później. To pokazuje kaskadę CSS w praktyce.
 
-**O:** To kod defensywny: jeśli kiedyś zmienią się ID albo elementów nie będzie, skrypt nie wywali błędu.
+### P: Czemu resetuje się też `button` i `input`?
 
-## 5) „Dogrywka” — pytania pogłębiające od nauczyciela
+**O:** Domyślne style kontrolek są mocno zależne od przeglądarki/OS. Reset daje neutralny punkt startowy, a docelowy wygląd jest dopiero w `style.css`.
 
-### P: Co poprawiłbyś jako następny krok?
+## JavaScript (Pliki w folderze `js/`)
+
+### P: Czemu projekt został podzielony na kilka plików zamiast jednego monolitu `script.js`?
+
+**O:** Pozwala to na lepszą organizację kodu wynikowego. `data.js` przechowuje dane konfiguracyjne i referencje DOM, `ui.js` animacje i wizualizacje, `commands.js` to silnik komend w terminalu (włącznie z easter-egg "ADI HACKER") a `main.js` podpina nasłuchiwacze i bootstrapuje grę. Taka modularyzacja ułatwia zrozumienie kodu.
+
+### P: Czemu logowanie Easter Egg'a generuje styl CSS bezpośrednio w JS zamiast w zewnętrznym pliku?
+
+**O:** "ADI HACKER" to easter egg - jego efekty są wstrzykiwane bezpośrednio przez headera gdy użyje się ukrytej komendy co sprawia wrażenie "włamania" w strukturę DOM.
+
+### P: Czemu wszędzie są guardy typu `if (clockTimeElement)`?
+
+**O:** To defensywne programowanie. Jeśli ktoś zmieni HTML albo usunie element, aplikacja nie wywali się `Cannot read properties of null`.
+
+### P: Jak działa zegar i czemu aktualizuje się co sekundę?
+
+**O:** `updateClock()` buduje nowy `Date`, formatuje datę (`YYYY.MM.DD`) i czas (`HH:MM:SS`), potem wpisuje do DOM. `setInterval(updateClock, 1000)` odświeża co sekundę.
+
+### P: Dlaczego `updateClock()` jest wywołane przed `setInterval`?
+
+**O:** Żeby nie pokazywać placeholdera (`YYYY.MM.DD` i `HH:MM:SS`) przez pierwszą sekundę po załadowaniu strony.
+
+### P: Skąd publiczne IP i co jeśli API nie odpowie?
+
+**O:** IP pobierane jest przez `fetch("https://api.ipify.org?format=json")`. W trakcie ładowania jest `LOADING...`, po sukcesie kolor statusu przechodzi na `--info`, a przy błędzie ustawiane jest `N/A` i kolor błędu.
+
+### P: Czemu użyto `innerHTML` do renderu terminala, zamiast tworzyć każdy element przez `createElement`?
+
+**O:** Tu to świadomy trade-off: szybkie renderowanie dużego, stałego bloku „ekranu terminala”. Minusem jest mniejsza granularność i potencjalne ryzyko XSS przy danych z zewnątrz. W tym kodzie treść jest statyczna, więc ryzyko jest ograniczone.
+
+### P: Jak pokazać od razu, że JS działa?
+
+**O:** Status `TRACE` startuje jako `UNACTIVE` w HTML i po uruchomieniu skryptu zmienia się na `ACTIVE` z kolorem `--info`. To natychmiastowy, widoczny dowód wykonania JS.
+
+### P: Jaki jest aktualny „trudny” bug architektoniczny i jak go wyjaśnić?
+
+**O:** `setActiveMission()` przełącza klasę `active`, ale CSS styluje `.mission--active`. To znaczy, że przy klikaniu misji logika i styl nie są w pełni zsynchronizowane. Poprawka: ujednolicić nazwę klasy po obu stronach.
+
+## Pytania przekrojowe (najtrudniejsze)
+
+### P: Dlaczego ten projekt nie używa frameworka?
+
+**O:** Cel projektu to pokazanie fundamentów frontendu: semantyka HTML, kaskada i RWD w CSS, oraz czysty DOM/API w JS. Framework ukryłby część mechaniki, którą tu trzeba świadomie obronić.
+
+### P: Co byś poprawił w pierwszej kolejności technicznie?
 
 **O:**
 
-1. Zastąpić ręczne dopełnianie zer metodą `String(...).padStart(2, "0")` dla czytelności.
-2. Po zakończeniu refaktoru zostawić jedną konwencję nazewnictwa (usunąć duplikaty selektorów).
-3. Dodać interakcje klawiaturowe w input terminala (historia po `↑`/`↓`).
-4. Przenieść szerokości pasków postępu do wartości dynamicznych sterowanych przez JS.
+1. Ujednolicić klasę aktywnej misji (`active` vs `mission--active`).
+2. Wynieść inline style z `renderMission1Output()` do klas CSS.
+3. Dodać obsługę klawiszy `Enter`, `ArrowUp`, `ArrowDown` dla terminala.
+4. Zmienić statyczne szerokości progress barów na wartości sterowane przez JS.
 
-### P: Dlaczego bez frameworka?
+## 30-sekundowa odpowiedz na "co tu jest najwazniejsze"
 
-**O:** Zakres projektu jest UI + prosta logika. Czyste HTML/CSS/JS utrzymuje lekkość projektu i dobrze pokazuje fundamenty webowe.
-
----
-
-## Szybka checklista przed prezentacją
-
-- Umieć wyjaśnić, czemu użyto `grid-template-rows: auto 1fr`.
-- Umieć opisać, jak pseudo-elementy tworzą pasek postępu.
-- Umieć wyjaśnić sens dwóch breakpointów i co każdy zmienia.
-- Umieć wyjaśnić, czemu `updateClock()` jest przed `setInterval`.
-- Mieć przygotowaną jedną konkretną propozycję rozwoju projektu.
-
-## 6) Ostatnie aktualizacje (stan na teraz)
-
-- Dodano mocniejszą responsywność (`1024px` i `700px`) z lepszym układaniem topbara, sidebara i skrótów.
-- Powiększono logo (również w breakpointach), żeby branding był czytelniejszy.
-- Dodano animację `logo-glitch` i później ją uspokojono: jest rzadsza oraz bardziej nieregularna.
-- W JS status `TRACE` po starcie skryptu zmienia się na `ACTIVE` jako szybki wizualny dowód działania JavaScript.
-
-### P: Jak pokazać nauczycielowi, że JS na pewno działa?
-
-**O:** Najprostszy dowód to zmiana tekstu statusu `TRACE` z `UNACTIVE` na `ACTIVE` po załadowaniu skryptu. To jest widoczne od razu bez klikania.
-
-### P: Co oznacza „bardziej unikalny glitch” w praktyce?
-
-**O:** Zmieniono keyframes tak, żeby efekt nie pojawiał się regularnie co stały krok, tylko w nieregularnych „burstach”. Dzięki temu animacja wygląda naturalniej i mniej mechanicznie.
+Projekt to terminalowy interfejs webowy oparty o semantyczny HTML, responsywny CSS Grid/Flex i JS bez frameworka. Najwazniejsze elementy techniczne to: defensywna praca na DOM, zegar czasu rzeczywistego, pobieranie publicznego IP z fallbackiem, oraz swiadome zarzadzanie kaskada i breakpointami. Dzieki temu moge wyjasnic nie tylko "jak", ale tez "dlaczego" dane decyzje zostaly podjete.

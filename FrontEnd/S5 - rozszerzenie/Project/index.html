@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="Assets/reset.css" />
     <link rel="stylesheet" href="Assets/style.css" />
-    <script src="script.js" defer></script>
+    <script src="js/data.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/commands.js" defer></script>
+    <script src="js/main.js" defer></script>
     <title>TechniHack</title>
   </head>
 
@@ -53,10 +56,16 @@
         </div>
         <div class="progress-panel" id="progressPanel">
           <div class="progress-row" id="progressMission">
-            <span class="progress-label">postep</span>
+            <span class="progress-label" id="progressMissionLabel">postep</span>
+            <span class="progress-track"
+              ><span class="progress-fill" id="progressMissionFill"></span
+            ></span>
           </div>
           <div class="progress-row" id="progressTime">
-            <span class="progress-label">saldo</span>
+            <span class="progress-label" id="progressTimeLabel">XP 0%</span>
+            <span class="progress-track"
+              ><span class="progress-fill" id="progressTimeFill"></span
+            ></span>
           </div>
         </div>
       </nav>
