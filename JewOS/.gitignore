@@ -1,0 +1,5 @@
+/target
+/build
+bzImage
+*.iso
+*.cpio.gz

@@ -1,0 +1,8 @@
+# Coreutils — ls, cat, echo, mkdir, rm, pwd, clear, uname
+[package]
+name = "jewos-utils"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }

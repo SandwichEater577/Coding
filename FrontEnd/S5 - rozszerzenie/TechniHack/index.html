@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Assets/reset.css" />
+    <link rel="stylesheet" href="Assets/style.css" />
+    <script src="JS/script.js" defer></script>
+    <title>TechniHack</title>
+  </head>
+  <body>
+    <div id="usb-animation" class="">
+      <div><span>hey</span></div>
+    </div>
+    <div id="home-screen" class="screen-unactive">
+      <header class="header" id="header">
+        <div class="logo" id="logo">
+          <span class="logo-text">TechniHack</span>
+        </div>
+        <div class="system-stats" id="systemStats">
+          <div class="stat" id="statIp">
+            <span class="stat-label">IP:</span>
+            <span id="ipAddress">Loading...</span>
+          </div>
+          <div class="stat" id="statTrace">
+            <span class="stat-label">TRACE:</span>
+            <span id="traceStatus">UNACTIVE</span>
+          </div>
+          <div class="stat" id="statLevel">
+            <span class="stat-label">LEVEL:</span>
+            <span id="level-indicator">0</span>
+          </div>
+        </div>
+        <div class="clock" id="clock">
+          <div class="clock-date" id="clockDate">YYYY.MM.DD</div>
+          <div class="clock-separator" id="clockSeparator">-</div>
+          <div class="clock-time" id="clockTime">HH:MM:SS</div>
+        </div>
+      </header>
+      <main class="main-content" id="mainContent">
+        <nav class="sidebar" id="sidebar">
+          <div class="sidebar-heading" id="sidebarHeading">Misje</div>
+          <div class="mission-list" id="missionList">
+            <button class="mission mission--active" id="mission1">
+              <span>01 - Tutorial</span>
+            </button>
+            <button class="mission mission--locked" id="mission2">
+              <span>02 - Alpha007</span>
+            </button>
+            <button class="mission mission--locked" id="mission3">
+              <span>03 - Nexus-DB</span>
+            </button>
+            <button class="mission mission--locked" id="mission4">
+              <span>04 - Ghost-Net</span>
+            </button>
+          </div>
+          <div class="progress-panel" id="progressPanel">
+            <div class="progress-row" id="progressMission">
+              <span class="progress-label" id="progressMissionLabel"
+                >postep</span
+              >
+              <span class="progress-track"
+                ><span class="progress-fill" id="progressMissionFill"></span
+              ></span>
+            </div>
+            <div class="progress-row" id="progressTime">
+              <span class="progress-label" id="progressTimeLabel">XP 0%</span>
+              <span class="progress-track"
+                ><span class="progress-fill" id="progressTimeFill"></span
+              ></span>
+            </div>
+          </div>
+        </nav>
+        <div class="terminal" id="terminal">
+          <div
+            class="terminal-output output-container"
+            id="terminalOutput"
+          ></div>
+          <div class="input-bar" id="inputBar">
+            <input type="text" aria-label="terminal input" />
+          </div>
+          <div class="shortcuts" id="shortcuts">
+            <div class="shortcut" id="shortcutTab">
+              <div class="shortcut-key">TAB</div>
+              <div class="shortcut-desc"><span>Autocomplete</span></div>
+            </div>
+            <div class="shortcut" id="shortcutHistory">
+              <div class="shortcut-key">↑↓</div>
+              <div class="shortcut-desc"><span>History</span></div>
+            </div>
+            <div class="shortcut" id="shortcutRestart">
+              <div class="shortcut-key">
+                <span class="mac-or-win-span">Undefined</span>+<span
+                  >Space</span
+                >
+              </div>
+              <div class="shortcut-desc"><span>Restart</span></div>
+            </div>
+            <div class="shortcut" id="shortcutCashout">
+              <div class="shortcut-key">
+                <span class="mac-or-win-span">Undefined</span>+<span>R</span>
+              </div>
+              <div class="shortcut-desc"><span>CrashOut</span></div>
+            </div>
+            <div class="shortcut" id="shortcutHelp">
+              <div class="shortcut-key">--help</div>
+              <div class="shortcut-desc"><span>Help</span></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

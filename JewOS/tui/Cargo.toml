@@ -1,0 +1,13 @@
+# Win95-style TUI desktop — ratatui + crossterm
+[package]
+name = "jewos-tui"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "desktop"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"

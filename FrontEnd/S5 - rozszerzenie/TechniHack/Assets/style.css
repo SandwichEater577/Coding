@@ -14,6 +14,10 @@
   --info: #88ccff;
 }
 
+.screen-unactive {
+  display: none;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -208,6 +212,7 @@ body {
 .mission--done {
   color: #0f5f3d;
   text-decoration: line-through;
+  text-decoration-color: #21c07f;
   text-decoration-thickness: 2px;
 }
 
@@ -797,4 +802,95 @@ body {
   #shortcutCashout .shortcut-key {
     min-width: 44px;
   }
+}
+
+/* Boot overlay */
+.boot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease;
+}
+
+.boot-overlay.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.boot-content {
+  width: min(500px, 85vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+.boot-logo {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 600;
+  color: #00f79a;
+  letter-spacing: 0.14em;
+  font-variant-caps: small-caps;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.4);
+  animation: boot-logo-flicker 0.12s 3;
+}
+
+@keyframes boot-logo-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.boot-lines {
+  width: 100%;
+  min-height: 120px;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  text-align: left;
+}
+
+.boot-line {
+  opacity: 0;
+  animation: boot-line-in 0.15s forwards;
+}
+
+.boot-line.ok {
+  color: var(--text);
+}
+
+.boot-line.warn {
+  color: var(--warning);
+}
+
+@keyframes boot-line-in {
+  to {
+    opacity: 1;
+  }
+}
+
+.boot-progress-track {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #063920;
+  box-shadow: inset 0 0 0 1px #0b4f32;
+  overflow: hidden;
+}
+
+.boot-progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: #05f188;
+  box-shadow: 0 0 12px rgba(5, 241, 136, 0.5);
+  transition: width 0.3s ease;
 }

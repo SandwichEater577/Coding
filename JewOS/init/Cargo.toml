@@ -1,0 +1,12 @@
+# PID 1 init process — mounts vfs, sets hostname, spawns shell
+[package]
+name = "jewos-init"
+version.workspace = true
+edition.workspace = true
+
+[[bin]]
+name = "init"
+path = "src/main.rs"
+
+[dependencies]
+nix = { version = "0.29", features = ["mount", "hostname", "signal", "process"] }

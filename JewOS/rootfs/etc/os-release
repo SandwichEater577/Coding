@@ -1,0 +1,5 @@
+NAME="JewOS"
+VERSION="0.1.0"
+ID=jewos
+PRETTY_NAME="JewOS 0.1.0"
+HOME_URL="https://github.com/jewos"
