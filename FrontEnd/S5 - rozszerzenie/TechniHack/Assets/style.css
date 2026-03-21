@@ -15,10 +15,14 @@
 }
 
 .screen-unactive {
-  display: none;
+  display: none !important;
 }
 
 body {
+  background: black;
+}
+
+div#home-screen {
   min-height: 100vh;
   margin: 0;
   padding: 8px;

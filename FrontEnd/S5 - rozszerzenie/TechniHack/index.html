@@ -6,20 +6,20 @@
     <link rel="stylesheet" href="Assets/reset.css" />
     <link rel="stylesheet" href="Assets/style.css" />
     <script src="JS/script.js" defer></script>
-    <title>TechniHack</title>
+    <title>DarkWire</title>
   </head>
   <body>
-    <div id="usb-animation" class="">
-      <div><span>hey</span></div>
+    <div id="usb-animation" class="screen-unactive">
+      <img src="Assets/USB.png" alt="" />
     </div>
-    <div id="home-screen" class="screen-unactive">
+    <div id="home-screen" class="">
       <header class="header" id="header">
         <div class="logo" id="logo">
-          <span class="logo-text">TechniHack</span>
+          <span class="logo-text">DarkWire</span>
         </div>
         <div class="system-stats" id="systemStats">
           <div class="stat" id="statIp">
-            <span class="stat-label">IP:</span>
+            <spa-n class="stat-label">IP:</span>
             <span id="ipAddress">Loading...</span>
           </div>
           <div class="stat" id="statTrace">
@@ -41,17 +41,26 @@
         <nav class="sidebar" id="sidebar">
           <div class="sidebar-heading" id="sidebarHeading">Misje</div>
           <div class="mission-list" id="missionList">
-            <button class="mission mission--active" id="mission1">
-              <span>01 - Tutorial</span>
+            <button class="mission mission--locked" id="mission1">
+              <span>01 · TUTORIAL</span>
             </button>
             <button class="mission mission--locked" id="mission2">
-              <span>02 - Alpha007</span>
+              <span>02 · ALPHA</span>
             </button>
             <button class="mission mission--locked" id="mission3">
-              <span>03 - Nexus-DB</span>
+              <span>03 · NEXUS</span>
             </button>
             <button class="mission mission--locked" id="mission4">
-              <span>04 - Ghost-Net</span>
+              <span>04 · GHOST</span>
+            </button>
+            <button class="mission mission--locked" id="mission5">
+              <span>05 · ORACLE</span>
+            </button>
+            <button class="mission mission--locked" id="mission6">
+              <span>06 · WRAITH</span>
+            </button>
+            <button class="mission mission--locked" id="mission7">
+              <span>07 · BLACKOUT </span>
             </button>
           </div>
           <div class="progress-panel" id="progressPanel">
