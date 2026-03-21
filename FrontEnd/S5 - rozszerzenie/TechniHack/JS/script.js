@@ -36,6 +36,13 @@ let traceVariable = "None";
  Functions
 =========*/
 
+// a function that boots the termninals screen and introduces the user to the story.
+function BootSequence() {
+  // first make at least 2 screens,
+  // then add class operators
+  // add animations and delays
+}
+
 function wait(seconds) {
   return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }

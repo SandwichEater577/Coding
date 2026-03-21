@@ -85,7 +85,7 @@
             <!--BOOT SCREEN-->
             <div
               id="terminal-output-boot-sequence-screen"
-              class="screen-unactive"
+              class="terminal-screen screen-unactive"
             >
               <div style="display: flex; flex-direction: column">
                 <div style="display: flex; flex-direction: row">
@@ -110,36 +110,64 @@
                 </div>
               </div>
               <div>
-                <span>[SYSTEM] All modules loaded.</span><br />
+                <span>[SYSTEM] All modules loaded.</span>
                 <span>[SYSTEM] Session Started, Welcome back.</span>
               </div>
               <div>
-                <span>══════════════════════════════════════════════</span
-                ><br />
-                <span>[PHANTOM] &gt; you are 6 days late.</span><br />
-                <span>[PHANTOM] &gt; NEXUS already knows you're here.</span
-                ><br />
+                <span>══════════════════════════════════════════════</span>
+                <span>[PHANTOM] &gt; you are 6 days late.</span>
+                <span>[PHANTOM] &gt; NEXUS already knows you're here.</span>
                 <span
                   >[PHANTOM] &gt; doesn't matter. too late to turn back.</span
-                ><br />
+                >
                 <span
                   >[PHANTOM] &gt; you have 4 missions. start with the
                   tutorial.</span
-                ><br />
-                <span>[PHANTOM] &gt; and don't open port 8472. never.</span
-                ><br />
+                >
+                <span>[PHANTOM] &gt; and don't open port 8472. never.</span>
                 <span>══════════════════════════════════════════════</span>
               </div>
               <div>
-                <span>[SYSTEM] Click a mission in the sidebar to begin.</span
-                ><br />
+                <span>[SYSTEM] Click a mission in the sidebar to begin.</span>
                 <span>[SYSTEM] Type '--help' to see available commands.</span>
               </div>
             </div>
-            <div
-              id="terminal-output-mission1-screen"
-              class="screen-unactive"
-            ></div>
+            <div id="terminal-output-mission1-screen" class="terminal-screen">
+              <div>
+                <div>
+                  <span>[SYSTEM] Loading mission: 01 · TUTORIAL</span>
+                  <span
+                    >[SYSTEM] Connecting to training server G.H.O.S.T...]</span
+                  >
+                </div>
+                <div>
+                  <span>[OK] Connected · ping: 67ms</span>
+                  <span>[OK] Environment ready</span>
+                </div>
+              </div>
+              <div>
+                <span> [PHANTOM] > alright. listen carefully. </span>
+                <span> [PHANTOM] > this terminal is all you have. </span>
+                <span>
+                  [PHANTOM] > learn to use it before NEXUS finds you.
+                </span>
+                <span>
+                  [PHANTOM] > and it will. the only question is when.
+                </span>
+              </div>
+              <div>
+                <span>[!] OBJECTIVE: Learn the basic system commands</span>
+                <span>[!] Use '--scan' to detect the network</span>
+                <span>[!] Use '--connect' to connect to the host</span>
+              </div>
+              <div>
+                <span>--help lista wszystkich komend</span>
+                <span>--scan skanuj lokalną sieć</span>
+                <span>--connect 'ip' połącz z hostem</span>
+                <span>--clear wyczyść terminal</span>
+                <span>--start zacznij misję od nowa</span>
+              </div>
+            </div>
           </div>
           <div class="input-bar" id="inputBar">
             <input type="text" aria-label="terminal input" />
