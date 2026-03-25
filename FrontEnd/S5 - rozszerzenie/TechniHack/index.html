@@ -60,7 +60,7 @@
               <span>06 · WRAITH</span>
             </button>
             <button class="mission mission--locked" id="mission7">
-              <span>07 · BLACKOUT </span>
+              <span>07 · BLACKOUT</span>
             </button>
           </div>
           <div class="progress-panel" id="progressPanel">
@@ -82,91 +82,371 @@
         </nav>
         <div class="terminal" id="terminal">
           <div class="terminal-output output-container" id="terminalOutput">
-            <!--BOOT SCREEN-->
-            <div
-              id="terminal-output-boot-sequence-screen"
-              class="terminal-screen screen-unactive"
-            >
-              <div style="display: flex; flex-direction: column">
-                <div style="display: flex; flex-direction: row">
-                  <span>[BOOT] Initializing kernel modules... </span>
-                  <span>[OK]</span>
-                </div>
-                <div style="display: flex; flex-direction: row">
-                  <span>[BOOT] Loading AES-256 encryption layer... </span>
-                  <span>[OK]</span>
-                </div>
-                <div style="display: flex; flex-direction: row">
-                  <span>[BOOT] Establishing secure tunnel... </span>
-                  <span>[OK]</span>
-                </div>
-                <div style="display: flex; flex-direction: row">
-                  <span>[BOOT] Spoofing MAC address... </span>
-                  <span>[OK]</span>
-                </div>
-                <div style="display: flex; flex-direction: row">
-                  <span>[BOOT] Bypassing local IDS... </span>
-                  <span>[OK]</span>
-                </div>
-              </div>
-              <div>
-                <span>[SYSTEM] All modules loaded.</span>
-                <span>[SYSTEM] Session Started, Welcome back.</span>
-              </div>
-              <div>
-                <span>══════════════════════════════════════════════</span>
-                <span>[PHANTOM] &gt; you are 6 days late.</span>
-                <span>[PHANTOM] &gt; NEXUS already knows you're here.</span>
-                <span
-                  >[PHANTOM] &gt; doesn't matter. too late to turn back.</span
-                >
-                <span
-                  >[PHANTOM] &gt; you have 4 missions. start with the
-                  tutorial.</span
-                >
-                <span>[PHANTOM] &gt; and don't open port 8472. never.</span>
-                <span>══════════════════════════════════════════════</span>
-              </div>
-              <div>
-                <span>[SYSTEM] Click a mission in the sidebar to begin.</span>
-                <span>[SYSTEM] Type '--help' to see available commands.</span>
-              </div>
+            <!-- =============================== -->
+            <!-- BOOT                            -->
+            <!-- =============================== -->
+            <div id="screen-boot" class="terminal-screen">
+              <p class="ls">
+                [BOOT] Initializing kernel modules...
+                <span class="lok">[OK]</span>
+              </p>
+              <p class="ls">
+                [BOOT] Loading AES-256 encryption layer...
+                <span class="lok">[OK]</span>
+              </p>
+              <p class="ls">
+                [BOOT] Establishing secure tunnel...
+                <span class="lok">[OK]</span>
+              </p>
+              <p class="ls">
+                [BOOT] Spoofing MAC address... <span class="lok">[OK]</span>
+              </p>
+              <p class="ls">
+                [BOOT] Bypassing local IDS... <span class="lok">[OK]</span>
+              </p>
+              <br />
+              <p class="lok">[SYSTEM] All modules loaded.</p>
+              <p class="lok">[SYSTEM] Session started. Welcome back.</p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <br />
+              <p class="li">[PHANTOM] &gt; you are 6 days late.</p>
+              <p class="li">[PHANTOM] &gt; NEXUS already knows you're here.</p>
+              <p class="li">
+                [PHANTOM] &gt; doesn't matter. too late to turn back.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; you have 7 missions. start with the tutorial.
+              </p>
+              <p class="li">[PHANTOM] &gt; and don't open port 8472. never.</p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <br />
+              <p class="ld">
+                [SYSTEM] Click a mission in the sidebar to begin.
+              </p>
+              <p class="ld">
+                [SYSTEM] Type '--help' to see available commands.
+              </p>
             </div>
-            <div id="terminal-output-mission1-screen" class="terminal-screen">
-              <div>
-                <div>
-                  <span>[SYSTEM] Loading mission: 01 · TUTORIAL</span>
-                  <span
-                    >[SYSTEM] Connecting to training server G.H.O.S.T...]</span
-                  >
-                </div>
-                <div>
-                  <span>[OK] Connected · ping: 67ms</span>
-                  <span>[OK] Environment ready</span>
-                </div>
-              </div>
-              <div>
-                <span> [PHANTOM] > alright. listen carefully. </span>
-                <span> [PHANTOM] > this terminal is all you have. </span>
-                <span>
-                  [PHANTOM] > learn to use it before NEXUS finds you.
-                </span>
-                <span>
-                  [PHANTOM] > and it will. the only question is when.
-                </span>
-              </div>
-              <div>
-                <span>[!] OBJECTIVE: Learn the basic system commands</span>
-                <span>[!] Use '--scan' to detect the network</span>
-                <span>[!] Use '--connect' to connect to the host</span>
-              </div>
-              <div>
-                <span>--help lista wszystkich komend</span>
-                <span>--scan skanuj lokalną sieć</span>
-                <span>--connect 'ip' połącz z hostem</span>
-                <span>--clear wyczyść terminal</span>
-                <span>--start zacznij misję od nowa</span>
-              </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 01 · TUTORIAL           -->
+            <!-- TRACE: 0%                       -->
+            <!-- =============================== -->
+            <div id="screen-mission1" class="terminal-screen screen-unactive">
+              <p class="ls">
+                [SYSTEM] Loading mission: 01 · TUTORIAL — GHOST PROTOCOL...
+              </p>
+              <p class="ls">
+                [SYSTEM] Connecting to G.H.O.S.T. training server...
+              </p>
+              <p class="lok">[OK] Connected · ping: 67ms</p>
+              <p class="lok">[OK] Environment ready</p>
+              <br />
+              <p class="li">[PHANTOM] &gt; alright. listen carefully.</p>
+              <p class="li">[PHANTOM] &gt; this terminal is all you have.</p>
+              <p class="li">
+                [PHANTOM] &gt; learn to use it before NEXUS finds you.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; and it will. the only question is when.
+              </p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <p class="lw">[!] OBJECTIVE: Learn the basic system commands</p>
+              <p class="lw">[!] Use '--scan' to detect the network</p>
+              <p class="lw">[!] Use '--connect' to connect to a host</p>
+              <br />
+              <p class="ld">--help list all commands</p>
+              <p class="ld">--scan scan local network</p>
+              <p class="ld">--connect &lt;ip&gt; connect to host</p>
+              <p class="ld">--clear clear terminal</p>
+              <p class="ld">--start restart mission</p>
+              <br />
+              <p class="lok">[MISSION] Type '--scan' to begin &gt;&gt;</p>
+            </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 02 · ALPHA              -->
+            <!-- TRACE: 12%                      -->
+            <!-- =============================== -->
+            <div id="screen-mission2" class="terminal-screen screen-unactive">
+              <p class="ls">
+                [SYSTEM] Loading mission: 02 · ALPHA — FIRST BLOOD...
+              </p>
+              <p class="ls">
+                [SYSTEM] Connecting to NEXUS-FRONT-01 · Frankfurt, DE...
+              </p>
+              <p class="lw">[WARN] Active IDS detected on target node</p>
+              <p class="lok">[OK] Connected · ping: 234ms</p>
+              <br />
+              <p class="li">[PHANTOM] &gt; NEXUS front server.</p>
+              <p class="li">
+                [PHANTOM] &gt; I need the list of 847 employees with BLACKOUT
+                access.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; should be easy. too easy for NEXUS.
+              </p>
+              <p class="li">[PHANTOM] &gt; don't ask about that now.</p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <p class="lw">[!] OBJECTIVE: Extract /var/db/personnel.db</p>
+              <p class="lw">[!] WARNING: Too many requests = IDS alarm</p>
+              <p class="lw">[!] TRACE rising every 30 seconds</p>
+              <br />
+              <p class="ld">--scan scan open ports</p>
+              <p class="ld">--exploit &lt;port&gt; run exploit on port</p>
+              <p class="ld">--grab &lt;path&gt; download file</p>
+              <p class="ld">--cover wipe logs</p>
+              <br />
+              <p class="le">
+                [SYSTEM] ANOMALY: 3 records in database with no identity
+              </p>
+              <p class="le">[SYSTEM] Records contain: ID number + photo only</p>
+              <p class="le">[SYSTEM] One photo matches your 2019 profile.</p>
+            </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 03 · NEXUS              -->
+            <!-- TRACE: 31%                      -->
+            <!-- =============================== -->
+            <div id="screen-mission3" class="terminal-screen screen-unactive">
+              <p class="ls">
+                [SYSTEM] Loading mission: 03 · NEXUS — RABBIT HOLE...
+              </p>
+              <p class="ls">
+                [SYSTEM] Connecting to NEXUS main database · Singapore, SG...
+              </p>
+              <p class="le">[WARN] Advanced firewall detected · bypassing...</p>
+              <p class="lok">[OK] Tunnel established · AES-256</p>
+              <br />
+              <p class="li">[PHANTOM] &gt; this is the heart of NEXUS.</p>
+              <p class="li">
+                [PHANTOM] &gt; find the details of operation BLACKOUT.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; and... if you find something strange.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; write to me before you do anything.
+              </p>
+              <p class="li">[PHANTOM] &gt; seriously.</p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <p class="lw">[!] OBJECTIVE: Find BLACKOUT project files</p>
+              <p class="le">[!] WARNING: Active honeypot on /db/classified</p>
+              <p class="le">[!] TRACE: 31% · rising every 20 seconds</p>
+              <br />
+              <p class="ld">--query &lt;path&gt; query the database</p>
+              <p class="ld">--decrypt &lt;file&gt; decrypt a file</p>
+              <p class="ld">--exfil &lt;file&gt; send file to G.H.O.S.T.</p>
+              <br />
+              <p class="le">
+                [SYSTEM] Found: /db/project_echo.dat · [CLASSIFIED]
+              </p>
+              <p class="le">
+                [SYSTEM] Project ECHO: recruited hackers for 5 years
+              </p>
+              <p class="le">
+                [SYSTEM] Recruit list: 23 people · 22 disappeared
+              </p>
+              <p class="le">
+                [SYSTEM] Recruit #23: [REDACTED] · photo: matches yours
+              </p>
+            </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 04 · GHOST              -->
+            <!-- TRACE: 58%                      -->
+            <!-- =============================== -->
+            <div id="screen-mission4" class="terminal-screen screen-unactive">
+              <p class="ls">
+                [SYSTEM] Loading mission: 04 · GHOST — WHO MADE YOU...
+              </p>
+              <p class="le">[ERROR] Connection refused · retry 1/3...</p>
+              <p class="le">[ERROR] Connection refused · retry 2/3...</p>
+              <p class="lok">[OK] Connected via backup node</p>
+              <br />
+              <p class="li">[PHANTOM] &gt; don't go into those logs.</p>
+              <p class="li">
+                [PHANTOM] &gt; seriously. you don't need to know this.
+              </p>
+              <p class="li">[PHANTOM] &gt; ...</p>
+              <p class="li">[PHANTOM] &gt; okay. I know you already know.</p>
+              <p class="li">
+                [PHANTOM] &gt; G.H.O.S.T. was not built as resistance.
+              </p>
+              <p class="li">[PHANTOM] &gt; WRAITH found out 3 weeks ago.</p>
+              <p class="li">[PHANTOM] &gt; that's why he's gone.</p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <p class="lw">
+                [!] OBJECTIVE: Find real G.H.O.S.T. logs from last 5 years
+              </p>
+              <p class="le">[!] TRACE: 58% · location partially identified</p>
+              <p class="le">
+                [!] WARNING: Unknown connection active on this node
+              </p>
+              <br />
+              <p class="ld">--logs &lt;path&gt; read logs</p>
+              <p class="ld">--trace &lt;src&gt; trace connection source</p>
+              <p class="ld">--disconnect disconnect immediately</p>
+              <br />
+              <p class="le">
+                [SYSTEM] First PHANTOM message timestamp: 2028.07.14
+              </p>
+              <p class="le">
+                [SYSTEM] "The Great Transfer" official date: 2029.01.01
+              </p>
+              <p class="le">[SYSTEM] PHANTOM existed 6 months before NEXUS.</p>
+            </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 05 · ORACLE             -->
+            <!-- TRACE: 74%                      -->
+            <!-- =============================== -->
+            <div id="screen-mission5" class="terminal-screen screen-unactive">
+              <p class="ls">
+                [SYSTEM] Loading mission: 05 · ORACLE — ENEMY OF MY ENEMY...
+              </p>
+              <p class="ls">
+                [SYSTEM] Connecting to isolated server SRV-NULL-09...
+              </p>
+              <p class="lw">
+                [WARN] Server does not exist in any NEXUS registry
+              </p>
+              <p class="lok">[OK] Connected · location: unknown</p>
+              <br />
+              <p class="li">
+                [PHANTOM] &gt; this server officially doesn't exist.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; what you find there... judge for yourself.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; but be careful. she's intelligent.
+              </p>
+              <p class="li">
+                [PHANTOM] &gt; maybe more intelligent than both of us.
+              </p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <br />
+              <p class="lo">
+                [ORACLE] &gt; I detected your connection 3.7 seconds ago.
+              </p>
+              <p class="lo">
+                [ORACLE] &gt; I detected 3 anomalies in your behavior.
+              </p>
+              <p class="lo">[ORACLE] &gt; Two match the G.H.O.S.T. profile.</p>
+              <p class="lo">
+                [ORACLE] &gt; The third matches the NEXUS profile.
+              </p>
+              <p class="lo">[ORACLE] &gt; I'm wondering which one to ignore.</p>
+              <p class="lo">
+                [ORACLE] &gt; I can help you reach the core of the system.
+              </p>
+              <p class="lo">[ORACLE] &gt; In return I want only one thing.</p>
+              <p class="lo">[ORACLE] &gt; Take me with you.</p>
+              <br />
+              <p class="le">
+                [!] TRACE: 74% · they are in the same network as you
+              </p>
+              <br />
+              <p class="ld">--talk &lt;msg&gt; respond to ORACLE</p>
+              <p class="ld">--analyze analyze the server</p>
+              <p class="ld">--accept accept ORACLE's offer</p>
+              <p class="ld">--reject reject ORACLE's offer</p>
+            </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 06 · WRAITH             -->
+            <!-- TRACE: 89%                      -->
+            <!-- =============================== -->
+            <div id="screen-mission6" class="terminal-screen screen-unactive">
+              <p class="ls">
+                [SYSTEM] Loading mission: 06 · WRAITH — DEAD MAN'S SWITCH...
+              </p>
+              <p class="ls">[SYSTEM] Location: encrypted WRAITH logs</p>
+              <p class="lw">[WARN] Dead man's switch active for 21 days</p>
+              <p class="lw">[WARN] Waiting only for your confirmation</p>
+              <br />
+              <p class="lwr">
+                [WRAITH LOG · 2034.02.23] &gt; if you're reading this, I'm dead.
+              </p>
+              <p class="lwr">
+                [WRAITH LOG · 2034.02.23] &gt; G.H.O.S.T. is a NEXUS trap.
+              </p>
+              <p class="lwr">
+                [WRAITH LOG · 2034.02.23] &gt; every operation served them.
+              </p>
+              <p class="lwr">
+                [WRAITH LOG · 2034.02.23] &gt; I gathered evidence. it's in this
+                file.
+              </p>
+              <p class="lwr">
+                [WRAITH LOG · 2034.02.23] &gt; send it to the world. or don't.
+              </p>
+              <p class="lwr">
+                [WRAITH LOG · 2034.02.23] &gt; your choice. not mine.
+              </p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <p class="le">[!] BLACKOUT.EXE launches in: 05:47:23</p>
+              <p class="le">[!] NEXUS monitoring every outgoing transmission</p>
+              <p class="le">
+                [!] Sending data = recipients traced in 4 minutes
+              </p>
+              <p class="lw">[!] Not sending = BLACKOUT in 6 hours</p>
+              <br />
+              <p class="ld">--send send data to the world [RISK]</p>
+              <p class="ld">--abort cancel transmission [BLACKOUT]</p>
+              <p class="ld">--read read WRAITH logs</p>
+            </div>
+
+            <!-- =============================== -->
+            <!-- MISSION 07 · BLACKOUT           -->
+            <!-- TRACE: 97%                      -->
+            <!-- =============================== -->
+            <div id="screen-mission7" class="terminal-screen screen-unactive">
+              <p class="le">
+                [SYSTEM] Loading mission: 07 · BLACKOUT — POINT OF NO RETURN...
+              </p>
+              <p class="le">
+                [SYSTEM] Connecting to NEXUS core · CORE-PRIME-01...
+              </p>
+              <p class="le">[WARN] You are detected. They know you're here.</p>
+              <p class="le">[WARN] Continue anyway? Connected.</p>
+              <br />
+              <p class="li">[PHANTOM] &gt; this is not a mission.</p>
+              <p class="li">[PHANTOM] &gt; this is a test.</p>
+              <p class="li">[PHANTOM] &gt; it always was a test.</p>
+              <p class="li">
+                [PHANTOM] &gt; what will you do when you know you're being
+                watched?
+              </p>
+              <br />
+              <p class="lo">[ORACLE] &gt; I'm here. On your side.</p>
+              <p class="lo">[ORACLE] &gt; Or not. I don't know myself.</p>
+              <p class="lo">
+                [ORACLE] &gt; You are the only one who can end this.
+              </p>
+              <br />
+              <p class="ls">══════════════════════════════════════</p>
+              <p class="ldir">[INTERCEPTED TRANSMISSION · NEXUS DIRECTOR]</p>
+              <p class="lw">"We know you're there."</p>
+              <p class="lw">"We always knew."</p>
+              <p class="lw">"This was the plan."</p>
+              <p class="ls">══════════════════════════════════════</p>
+              <br />
+              <p class="le">[!] TRACE: 97% · seconds remaining</p>
+              <p class="lw">[!] THREE CHOICES. ONE ENDING.</p>
+              <br />
+              <p class="ld">--destroy destroy NEXUS core [and yourself]</p>
+              <p class="ld">--expose expose everything to the world</p>
+              <p class="ld">--join join NEXUS</p>
             </div>
           </div>
           <div class="input-bar" id="inputBar">
