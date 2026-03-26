@@ -15,7 +15,7 @@
 }
 
 /* =============================== */
-/* GLOBAL                          */
+/* PRESS ENTER OVERLAY             */
 /* =============================== */
 
 #press-enter-overlay {
@@ -28,11 +28,30 @@
   z-index: 9999;
   font-family: "Share Tech Mono", monospace;
 }
+
+/* hint-mode = pelny ekran polprzezroczysty */
+#press-enter-overlay.hint-mode {
+  inset: 0;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-top: none;
+  border-radius: 0;
+  backdrop-filter: blur(1px);
+}
+
 #pe-text {
   font-size: 2.2rem;
   color: #00ff88;
   letter-spacing: 0.18em;
 }
+
+#press-enter-overlay.hint-mode #pe-text {
+  font-size: 2rem;
+  letter-spacing: 0.22em;
+  color: var(--text);
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.6);
+}
+
 #failed-text {
   font-size: 2.2rem;
   color: #ff4444;
@@ -40,6 +59,90 @@
   display: none;
   opacity: 0;
 }
+
+/* =============================== */
+/* GAME OVER OVERLAY               */
+/* =============================== */
+
+#game-over-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+#go-text {
+  font-family: "Share Tech Mono", monospace;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  color: #ff4444;
+  letter-spacing: 0.2em;
+  animation: go-glitch 0.4s steps(2) infinite;
+}
+
+#go-sub {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 1rem;
+  color: #882222;
+  letter-spacing: 0.15em;
+}
+
+#go-hint {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 0.85rem;
+  color: #444;
+  margin-top: 32px;
+  animation: go-blink 1.2s step-end infinite;
+}
+
+@keyframes go-glitch {
+  0% {
+    transform: translate(0, 0);
+    text-shadow:
+      2px 0 #00ffff,
+      -2px 0 #ff00ff;
+  }
+  25% {
+    transform: translate(-2px, 0);
+    text-shadow:
+      -2px 0 #00ffff,
+      2px 0 #ff00ff;
+  }
+  50% {
+    transform: translate(2px, 1px);
+    text-shadow: 1px 0 #00ffff;
+  }
+  75% {
+    transform: translate(-1px, 0);
+    text-shadow: -1px 0 #ff00ff;
+  }
+  100% {
+    transform: translate(0, 0);
+    text-shadow:
+      2px 0 #00ffff,
+      -2px 0 #ff00ff;
+  }
+}
+
+@keyframes go-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* =============================== */
+/* GLOBAL                          */
+/* =============================== */
 
 .screen-unactive {
   display: none !important;
@@ -180,7 +283,6 @@ div#home-screen {
 .clock-time {
   color: var(--text-soft);
 }
-
 .clock-separator {
   color: var(--text-dim);
 }
@@ -588,9 +690,7 @@ div#home-screen {
   #sidebar {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "heading heading"
-      "missions progress";
+    grid-template-areas: "heading heading" "missions progress";
     align-items: start;
     border-right: none;
     border-bottom: 1px solid var(--line);
@@ -680,7 +780,6 @@ div#home-screen {
     gap: 8px;
     font-size: 0.86rem;
   }
-
   .stat {
     gap: 6px;
   }
@@ -693,7 +792,6 @@ div#home-screen {
   .mission-list {
     border-right: none;
   }
-
   #app,
   #mainContent,
   .main-content {
@@ -706,7 +804,6 @@ div#home-screen {
     height: 44px;
     font-size: 1rem;
   }
-
   .mission {
     min-height: 42px;
     padding: 0 12px;
@@ -760,4 +857,69 @@ div#home-screen {
   #shortcutCashout .shortcut-key {
     min-width: 44px;
   }
+}
+
+/* =============================== */
+/* ENDING OVERLAY                  */
+/* =============================== */
+
+#ending-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  font-family: "Share Tech Mono", monospace;
+}
+
+#ending-sub {
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: #222;
+  margin-bottom: 48px;
+  text-transform: uppercase;
+}
+
+#ending-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: min(680px, 88vw);
+}
+
+.ending-line {
+  font-size: clamp(0.9rem, 1.4vw, 1.15rem);
+  letter-spacing: 0.06em;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  color: var(--ending-color, #00ff88);
+  animation: ending-fade-in 0.3s ease forwards;
+}
+
+@keyframes ending-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+#ending-hint {
+  font-size: 0.78rem;
+  color: #333;
+  letter-spacing: 0.2em;
+  margin-top: 56px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  animation: go-blink 2s step-end infinite;
 }
