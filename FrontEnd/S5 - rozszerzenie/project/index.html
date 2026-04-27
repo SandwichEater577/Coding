@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Projekt</title>
+  <p></p>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: lightyellow;
+      transition: filter 0.5s;
+    }
+
+    #napis {
+      font-size: 50px;
+      cursor: pointer;
+      animation: pulsowanie 2s infinite;
+    }
+
+    @keyframes pulsowanie {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    .ukryty {
+      display: none;
+    }
+  </style>
+</head>
+<body onscroll="console.log('Przewijasz!')">
+
+  <div id="napis">KLIKNIJ MNIE</div>
+  
+  <div class="pudelko"></div>
+  <div class="pudelko"></div>
+
+  <script>
+    const mojNapis = document.querySelector('#napis');
+    const wszystkiePudelka = document.querySelectorAll('.pudelko');
+    const ppp = document.querySelector('p');
+
+    setInterval(function() {
+      const czas = new Date(); 
+      mojNapis.innerText = czas.toLocaleTimeString();
+    }, 1000);
+
+    mojNapis.addEventListener('click', function(zdarzenie) {
+      zdarzenie.target.style.color = "orange";
+    });
+
+    window.addEventListener('keydown', function(zdarzenie) {
+      zdarzenie.preventDefault();
+
+      mojNapis.classList.toggle('ukryty');
+
+      const losowyKolor = Math.random() * 360;
+      document.body.style.backgroundColor = "hsl(" + losowyKolor + ", 100%, 50%)";
+    });
+
+    window.addEventListener('resize', function() {
+      document.body.style.filter = "blur(10px)";
+
+      setTimeout(function() {
+        document.body.style.filter = "none";
+      }, 500);
+    });
+
+    setInterval(() => {
+      ppp.textContent = Math.floor(Math.random()  * 2) + 66;
+    }, 500);
+
+  </script>
+</body>
+</html>
