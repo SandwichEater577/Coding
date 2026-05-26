@@ -1,0 +1,161 @@
+:root {
+  --bg: #0d0d0d;
+  --panel: #1f1f1f;
+  --muted: #888;
+  --border: #2a2a2a;
+  --hover-panel: #1a1a1a;
+  --hover-border: #444;
+  --radius-pill: 999px;
+  --transition-time: 180ms;
+}
+
+header {
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--panel);
+  padding: 0 24px;
+  min-height: 96px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: center;
+}
+
+.text,
+.text:visited,
+.text:hover,
+.text:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+#main-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.nav-link {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  transition:
+    background var(--transition-time) ease,
+    color var(--transition-time) ease,
+    border-color var(--transition-time) ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background: var(--hover-panel);
+  color: #fff;
+  border-color: var(--hover-border);
+}
+
+.nav-link:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.08);
+  outline-offset: 2px;
+}
+
+.nav-link.active {
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav-link {
+    transition: none !important;
+  }
+}
+
+@media (max-width: 520px) {
+  header {
+    padding: 0 12px;
+  }
+  .nav-link {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg);
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #fff;
+}
+
+/* --- Content Container --- */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* --- Cards --- */
+.main-button_item {
+  flex: 1 1 calc(20% - 20px);
+  min-width: 220px;
+  max-width: 250px;
+  position: relative;
+  display: block;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-time) ease, box-shadow var(--transition-time) ease;
+}
+
+.main-button_item picture,
+.main-button_item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-time) ease;
+}
+
+.main-button_item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.main-button_item:hover img {
+  transform: scale(1.03);
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 1200px) {
+  .main-button_item {
+    flex: 1 1 calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: 768px) {
+  .main-button_item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .main-button_item {
+    flex: 1 1 100%;
+    max-width: 320px;
+  }
+}
