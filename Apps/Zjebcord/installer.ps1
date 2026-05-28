@@ -1,1 +1,0 @@
-Write-Host "Installing Zjebcord..." -ForegroundColor Cyan
