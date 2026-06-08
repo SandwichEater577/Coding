@@ -34,3 +34,5 @@ build/
 **/[Ll]ogs/
 **/[Oo]bj/
 **/[Uu]ser[Ss]ettings/
+venv/
+Python/3DGame/venv/

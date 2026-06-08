@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legalna Ściąga: Układ Pokarmowy</title>
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --primary-light: #e8f5e9;
+            --accent: #d32f2f;
+            --text: #333333;
+            --bg: #f5f5f5;
+            --card-bg: #ffffff;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary);
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--primary);
+            font-size: 18px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .highlight {
+            background-color: #fff9c4;
+            font-weight: bold;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .badge-ph {
+            display: inline-block;
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            th, td { padding: 8px 10px; font-size: 13px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Układ Pokarmowy – Szybka Powtórka</h1>
+        <p>Wszystko, co musisz wiedzieć na sprawdzian w jednym miejscu</p>
+    </header>
+
+    <div class="grid">
+        <div class="card">
+            <h2>1. Jama ustna, gardło i przełyk</h2>
+            <ul>
+                <li><strong>Jama ustna:</strong> Trawienie mechaniczne (zęby) i chemiczne węglowodanów. <span class="badge-ph">pH ok. 7 (obojętne)</span>.</li>
+                <li><strong>Ślina:</strong> Zawiera lizozym (bakteriobójczy) oraz amylazę ślinową.</li>
+                <li><strong>Gardło:</strong> Wspólny odcinek układu pokarmowego i oddechowego. <span class="highlight">Nagłośnia</span> zamyka wejście do krtani podczas połykania.</li>
+                <li><strong>Przełyk:</strong> Przesuwa pokarm do żołądka dzięki <span class="highlight">ruchom perystaltycznym</span> (robaczkowym).</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. Żołądek</h2>
+            <ul>
+                <li><strong>Funkcja:</strong> Miksowanie pokarmu, wyjaławianie i początek trawienia białek.</li>
+                <li><strong>Sok żołądkowy:</strong> Zawiera <span class="highlight">kwas solny (HCl)</span>, który aktywuje enzymy i niszczy drobnoustroje. <span class="badge-ph">pH 1-2 (silnie kwasowe)</span>.</li>
+                <li><strong>Błona śluzowa:</strong> Chroni ściany żołądka przed samostrawieniem przez HCl i pepsynę.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>3. Jelito cienkie</h2>
+            <ul>
+                <li><strong>Dwunastnica:</strong> Pierwszy odcinek, tu trafiają soki z trzustki i wątroby. <span class="badge-ph">pH zasadowe</span>.</li>
+                <li><strong>Trawienie:</strong> Główny i ostateczny etap trawienia wszystkich makroskładników.</li>
+                <li><strong>Wchłanianie:</strong> Zachodzi dzięki <span class="highlight">kosmkom jelitowym</span> (zwiększają powierzchnię chłonną) i mikrokosmkom do krwi i limfy.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>4. Jelito grube i duże gruczoły</h2>
+            <ul>
+                <li><strong>Jelito grube:</strong> Brak trawienia enzymatycznego. Następuje tu <span class="highlight">wchłanianie wody</span> i soli mineralnych. Bakterie symbiotyczne produkują witaminy K i z grupy B. Formowanie kału.</li>
+                <li><strong>Wątroba:</strong> Produkuje <span class="highlight">żółć</span> (emulguje tłuszcze – rozbija je na małe kropelki), detoksykuje organizm, magazynuje glikogen.</li>
+                <li><strong>Trzustka:</strong> Produkuje sok trzustkowy bogaty w enzymy oraz hormony (insulina, glukagon).</li>
+            </ul>
+        </div>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Miejsce wydzielania</th>
+                    <th>Enzym</th>
+                    <th>Substrat (Co trawi)</th>
+                    <th>Produkt trawienia</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Jama ustna</strong> (ślinianki)</td>
+                    <td>Amylaza ślinowa (ptialina)</td>
+                    <td>Skrobia (wielocukier)</td>
+                    <td>Maltoza (dwucukier)</td>
+                </tr>
+                <tr>
+                    <td><strong>Żołądek</strong></td>
+                    <td>Pepsyna (wydzielana jako pepsynogen)</td>
+                    <td>Białka</td>
+                    <td>Polipeptydy (krótsze łańcuchy)</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><strong>Trzustka</strong> (działa w dwunastnicy)</td>
+                    <td>Amylaza trzustkowa</td>
+                    <td>Skrobia</td>
+                    <td>Maltoza</td>
+                </tr>
+                <tr>
+                    <td>Trypsyna i chymotrypsyna</td>
+                    <td>Polipeptydy</td>
+                    <td>Oligopeptydy i aminokwasy</td>
+                </tr>
+                <tr>
+                    <td>Lipaza trzustkowa <span class="badge">Wymaga żółci!</span></td>
+                    <td>Tłuszcze (zemulgowane)</td>
+                    <td>Glicerol i kwasy tłuszczowe</td>
+                </tr>
+                <tr>
+                    <td rowspan="3"><strong>Jelito cienkie</strong> (sok jelitowy)</td>
+                    <td>Peptydazy</td>
+                    <td>Peptydy</td>
+                    <td>Aminokwasy <span class="badge">Koniec!</span></td>
+                </tr>
+                <tr>
+                    <td>Maltaza, sacharaza, laktaza</td>
+                    <td>Dwucukry (maltaza -> maltoza)</td>
+                    <td>Cukry proste (np. glukoza) <span class="badge">Koniec!</span></td>
+                </tr>
+                <tr>
+                    <td>Lipaza jelitowa</td>
+                    <td>Tłuszcze</td>
+                    <td>Glicerol i kwasy tłuszczowe <span class="badge">Koniec!</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card" style="margin-top: 20px; border-left-color: var(--accent);">
+        <h2>⚠️ Pewniaki na test (Na co uważać!)</h2>
+        <ul>
+            <li><strong>Żółć to NIE enzym!</strong> Żółć nie trawi chemicznie. Ona tylko <em>emulguje</em> tłuszcze (zwiększa powierzchnię działania lipazy).</li>
+            <li><strong>Dlaczego pepsyna nie trawi żołądka?</strong> Bo jest wydzielana w formie nieaktywnej (<span class="highlight">pepsynogen</span>) i aktywuje się dopiero w świetle żołądka pod wpływem HCl.</li>
+            <li><strong>Dokąd trafiają produkty?</strong> Cukry i aminokwasy wchłaniają się do <strong>krwi</strong> (żyła wrotna do wątroby), a kwasy tłuszczowe i glicerol do <strong>naczyń limfatycznych</strong>.</li>
+        </ul>
+    </div>
+
+    <div class="footer">
+        Wygenerowano jako pomoc dydaktyczną. Powodzenia na sprawdzianie!
+    </div>
+</div>
+
+</body>
+</html>

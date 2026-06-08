@@ -1,11 +1,24 @@
 import pygame
 import sys
+import platform
+import subprocess
+import time
 
-def main():
+def CyberPong():
     pygame.init()
-    
-    rozmiarx = 676
-    rozmiary = 767
+
+    user_input = input("Enter The width of the game window (default 1024): ")
+    if user_input:
+        rozmiarx = int(user_input)
+    else:
+        rozmiarx = 1024
+
+    rozmiary = rozmiarx * 0.5625
+
+    for frame in ["|", "/", "-", "\\"] * 4:
+        subprocess.call('cls' if platform.system() == "Windows" else 'clear', shell=True)
+        print(f"Starting CyberPong: {frame}")
+        time.sleep(0.05)
 
     background_colour = (10, 10, 10)
     (width, height) = (rozmiarx, rozmiary)
@@ -14,14 +27,16 @@ def main():
     pygame.display.set_caption('CyberPong')
 
     clock = pygame.time.Clock()
+    # clock is a pygame.time.Clock object used to control the game's frame rate
+    # calling clock.tick(fps) later limits the main loop to the specified FPS
     font = pygame.font.SysFont("Arial", 60)
 
     player1 = pygame.Rect(rozmiarx - rozmiarx + 15, height // 2 - 45, 15, 90)
     player2 = pygame.Rect(rozmiarx - 30, height // 2 - 45, 15, 90)
     ball = pygame.Rect(width // 2 - 10, height // 2 - 10, 20, 20)
 
-    ball_speed_x = 1
-    ball_speed_y = 1
+    ball_speed_x = 5
+    ball_speed_y = 5
     player_speed = 7
 
     score1 = 0
@@ -72,18 +87,8 @@ def main():
 
         if has_collision:
             ball.center = (width // 2, height // 2)
-            if ball_speed_x <= 0:
-                ball_speed_x -= 1
-            else:
-                ball_speed_x += 1
-
-            if ball_speed_y <= 0:
-                ball_speed_y -= 1
-            else:
-                ball_speed_y += 1
-
-            ball_speed_x *= -1
-            ball_speed_y *= -1
+            ball_speed_x = (abs(ball_speed_x) + 0.67) * (-1 if ball_speed_x > 0 else 1) * -1
+            ball_speed_y = (abs(ball_speed_y) + 0.67) * (-1 if ball_speed_y > 0 else 1) * -1
 
         screen.fill(background_colour)
 
@@ -98,10 +103,107 @@ def main():
         screen.blit(score_surf, (width // 2 - score_surf.get_width() // 2, 20))
 
         pygame.display.flip()
+
         clock.tick(60)
+        
+        font = pygame.font.SysFont("Arial", 60)
+
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+        keys = pygame.key.get_pressed()
+
+        player = pygame.Rect(rozmiarx - rozmiarx + 15, height // 2 - 45, 15, 90)
 
     pygame.quit()
-    sys.exit()
+    ...
+
+def SpaceInvaders():
+    pygame.init()
+
+    user_input = input("Enter The width of the game window (default 1024): ")
+    if user_input:
+        rozmiarx = int(user_input)
+    else:
+        rozmiarx = 1024
+
+    rozmiary = rozmiarx * 0.5625
+
+    print("1 -> Easy")
+    print("2 -> Medium")
+    print("3 -> Hard")
+    print("4 -> Infinite")
+    
+    user_input = input("Choose the difficluty (Default: 1): ")
+
+    match user_input:
+        case "1":
+            difficulty = 1
+        case "2":
+            difficulty = 2
+        case "3":
+            difficulty = 3
+        case "4":
+            difficulty = 4
+        case _:
+            print("Invalid input. Defaulting to Easy.")
+            difficulty = 1
+
+    for frame in ["|", "/", "-", "\\"] * 4:
+        subprocess.call('cls' if platform.system() == "Windows" else 'clear', shell=True)
+        print(f"Starting Space Invaders: {frame}")
+        time.sleep(0.05)
+
+    background_colour = (10, 10, 10)
+    (width, height) = (rozmiarx, rozmiary)
+    screen = pygame.display.set_mode((width, height))
+    pygame.display.set_caption('Space Invaders')
+
+    clock = pygame.time.Clock()
+
+    player = pygame.Rect(width // 2 - 25, height - 60, 50, 30)
+    ...
+
+def main():
+    # clear terminal in a cross-platform way using subprocess
+    clear_cmd = 'cls' if platform.system() == "Windows" else 'clear'
+
+    def clear_screen():
+        subprocess.call(clear_cmd, shell=True)
+
+    clear_screen()
+
+    print("welcome to NesTea's Game Room!")
+    print("Choose a game to play!:")
+    print("0 -> Exit")
+    print("1 -> CyberPong")
+    print("2 -> Space Invaders")
+
+    while True:
+        user_input = input("Enter the number of the game you want to play: ")
+
+        if user_input.isdigit() != True:
+            print("Invalid input. Please enter a number.")
+            continue
+
+        if user_input == "0":
+            for frame in ["|", "/", "-", "\\"] * 4:
+                clear_screen()
+                print(f"Exiting Game Room: {frame}")
+                time.sleep(0.05)
+            clear_screen()
+            print("GoodBye!")
+            time.sleep(0.67)
+            clear_screen()
+            sys.exit()
+        elif user_input == "1":
+            CyberPong()
+        elif user_input == "2":
+            SpaceInvaders()
+        else:
+            print("Invalid input. Please enter 0, 1, or 2.")
 
 if __name__ == "__main__":
     main()

