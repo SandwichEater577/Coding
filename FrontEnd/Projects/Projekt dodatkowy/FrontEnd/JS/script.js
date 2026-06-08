@@ -53,7 +53,6 @@ const attachChooseVehicleTypeListeners = () => {
   if (boatsButtonOnTheChooseVehicleTypeScreen) {
     boatsButtonOnTheChooseVehicleTypeScreen.addEventListener("click", (e) => {
       e.preventDefault();
-      window.location.href = "#";
     });
   }
 };
