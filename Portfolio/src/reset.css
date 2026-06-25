@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+  Font-face placeholders for official PS3 fonts if you acquire them legally.
+  (e.g., dev_flash/vsh/resource/SCE-PS3-RD-R-LATIN2.TTF)
+*/
+@font-face {
+  font-family: "PS3-Original";
+  src:
+    local("Helvetica Neue"), local("Helvetica"), local("Arial"),
+    local("sans-serif");
+}
+
+@font-face {
+  font-family: "PS3-Rounded";
+  src: local("Arial Rounded MT Bold"), local("sans-serif");
+}
+
+@font-face {
+  font-family: "PS3-Pop";
+  src:
+    local("Comic Sans MS"), local("sans-serif"); /* Approximate chunky/fun font */
+}
+
+@font-face {
+  font-family: "PS3-Logo";
+  src:
+    local("Century Gothic"), local("sans-serif"); /* Spider-Man / Mata approximation */
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+
+  color: var(--ps3-text-primary);
+  font-family: var(--font-family);
+  /* XMB menus usually don't natively scroll */
+  overflow: hidden;
+  /* Prevent text selection to make it feel more like a native UI */
+  user-select: none;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}

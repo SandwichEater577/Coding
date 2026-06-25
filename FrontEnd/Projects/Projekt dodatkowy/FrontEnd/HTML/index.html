@@ -1,63 +1,58 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="ThunderSight - browse tanks, maps, and aircraft."
-    />
-    <title>ThunderSight</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
 
-    <script src="../JS/script.js" defer></script>
-    <script src="../JS/loader.js" defer></script>
-  </head>
-  <body id="body-container">
-    <header id="main-header">
-      <div id="header-logo">
-        <img
-          src="../../BackEnd/Assets/Logo.png"
-          alt="ThunderSight Logo"
-          width="260"
-          style="height: 130px; width: auto"
-          decoding="async"
-          loading="eager"
-        />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ThunderSight - browse tanks, maps, and aircraft." />
+  <title>ThunderSight</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+
+  <script src="../JS/script.js" defer></script>
+  <script src="../JS/loader.js" defer></script>
+</head>
+
+<body id="body-container">
+  <header id="main-header">
+    <div id="header-logo">
+      <img src="../../BackEnd/Assets/Logo.png" alt="ThunderSight Logo" width="260" style="height: 130px; width: auto"
+        decoding="async" loading="eager" />
+    </div>
+    <nav id="main-nav" aria-label="Primary navigation"></nav>
+  </header>
+  <main id="main-root">
+    <div id="choose-vehicle-type-screen" class="screen-active">
+      <div class="cards-container">
+        <a href="#" id="aviation-button-on-the-choose-vehicle-type-screen" class="main-button_item">
+          <picture>
+            <img src="../../BackEnd/Assets/main_button_aircraft_en.webp" alt="Aviation" />
+          </picture>
+        </a>
+        <a href="#" id="helicopters-button-on-the-choose-vehicle-type-screen" class="main-button_item">
+          <picture>
+            <img src="../../BackEnd/Assets/main_button_helicopter_en.webp" alt="Helicopters" />
+          </picture>
+        </a>
+        <a href="#" id="ground-vehicles-button-on-the-choose-vehicle-type-screen" class="main-button_item">
+          <picture>
+            <img src="../../BackEnd/Assets/main_button_tank_en.webp" alt="Ground Vehicles" />
+          </picture>
+        </a>
+        <a href="#" id="ships-button-on-the-choose-vehicle-type-screen" class="main-button_item">
+          <picture>
+            <img src="../../BackEnd/Assets/main_button_ship_en.webp" alt="Ships" />
+          </picture>
+        </a>
+        <a href="#" id="boats-button-on-the-choose-vehicle-type-screen" class="main-button_item">
+          <picture>
+            <img src="../../BackEnd/Assets/main_button_boat_en.webp" alt="Boats" />
+          </picture>
+        </a>
       </div>
-      <nav id="main-nav" aria-label="Primary navigation"></nav>
-    </header>
-    <main id="main-root">
-      <div id="choose-vehicle-type-screen" class="screen-active">
-        <div class="cards-container">
-          <a href="#" id="aviation-button-on-the-choose-vehicle-type-screen" class="main-button_item ">
-            <picture>
-              <img src="../../BackEnd/Assets/main_button_aircraft_en.webp" alt="Aviation">
-            </picture>
-          </a>
-          <a href="#" id="helicopters-button-on-the-choose-vehicle-type-screen" class="main-button_item">
-            <picture>
-              <img src="../../BackEnd/Assets/main_button_helicopter_en.webp" alt="Helicopters">
-            </picture>
-          </a>
-          <a href="#" id="ground-vehicles-button-on-the-choose-vehicle-type-screen" class="main-button_item">
-            <picture>
-              <img src="../../BackEnd/Assets/main_button_tank_en.webp" alt="Ground Vehicles">
-            </picture>
-          </a>
-          <a href="#" id="ships-button-on-the-choose-vehicle-type-screen" class="main-button_item">
-            <picture>
-              <img src="../../BackEnd/Assets/main_button_ship_en.webp" alt="Ships">
-            </picture>
-          </a>
-          <a href="#" id="boats-button-on-the-choose-vehicle-type-screen" class="main-button_item">
-            <picture>
-              <img src="../../BackEnd/Assets/main_button_boat_en.webp" alt="Boats">
-            </picture>
-          </a>
-        </div>
-      </div>
-    </main>
-    <footer id="main-footer"></footer>
-  </body>
+    </div>
+    <div id="aviation-screen"></div>
+  </main>
+  <footer id="main-footer"></footer>
+</body>
+
 </html>

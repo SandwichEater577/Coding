@@ -1,0 +1,15 @@
+.xmb-container {
+  /* 
+    The PS3 menu takes up the full screen.
+    Usually it focuses the selected item in a fixed position 
+    while the other items scroll past it.
+  */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
