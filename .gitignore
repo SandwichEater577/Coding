@@ -5,6 +5,8 @@ Thumbs.db
 # IDE/editor folders
 .vscode/
 .idea/
+tmp/
+package-lock.json
 
 # Python
 .venv/
