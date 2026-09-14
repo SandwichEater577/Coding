@@ -1,0 +1,90 @@
+header#main-header-container {
+  background-color: #ffffff1f;
+  width: 100%;
+  height: min-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  > * {
+    margin: 5px;
+  }
+}
+
+#main-header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+  margin-inline: 5px;
+}
+
+#main-header-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 1;
+}
+
+#main-header-middle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex: 2;
+  margin-inline: 5px;
+}
+
+input#main-header-search {
+  width: 100%;
+}
+
+#main-header-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: min-content;
+}
+
+#main-header-search {
+  padding: 3px;
+}
+
+#main-header-profile-button {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-header-profile-arrow {
+  width: 7px;
+  height: 7px;
+  padding: auto;
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+}
+
+#main-header-div-for-buttons {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100%;
+  padding-inline: 10px;
+  gap: 10px;
+
+  * {
+    flex: 1;
+    width: 100%;
+    border: none;
+    border-bottom: 3px solid black;
+  }
+
+  *:hover {
+    background-color: #ffffff0f;
+  }
+}
