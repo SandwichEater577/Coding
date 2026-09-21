@@ -1,0 +1,176 @@
+.WinJS-window {
+  position: fixed;
+  bottom: 7.5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(3, 57, 112, 0.817);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(123, 176, 219, 0.5);
+  border-radius: 15px;
+  padding: 10px;
+  width: 35vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.window {
+  z-index: 2;
+}
+
+#winjs-left-section {
+  flex: 7;
+}
+
+#winjs-right-section {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+#user-profile-picture {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+
+  > div {
+    background-color: rgb(123, 176, 219);
+    position: relative;
+    size: 150%;
+    padding: 3px;
+    height: min-content;
+    width: min-content;
+    border-radius: 5px;
+    border: 1px solid rgba(123, 176, 219, 0.5);
+  }
+}
+
+#user-actions {
+  flex: 80%;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+#user-power-actions {
+  height: 10%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+}
+
+#user-power-actions > div {
+  text-wrap: nowrap;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  align-items: center;
+}
+
+.more-button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.user-action-button {
+  flex: 1;
+  border: none;
+  background: none;
+  text-align: left;
+  color: white;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  font-size: larger;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.user-action-button:hover {
+  background-color: rgba(3, 54, 96, 0.55);
+}
+
+#top-user-actions {
+  height: 40%;
+}
+
+#middle-user-actions {
+  height: 20%;
+  border-top: 2px solid rgba(123, 176, 219, 0.35);
+  border-bottom: 2px solid rgba(123, 176, 219, 0.35);
+}
+
+#bottom-user-actions {
+  height: 40%;
+}
+
+.user-power-action-button {
+  background: linear-gradient(to top, rgb(2, 53, 104), rgb(165, 215, 255));
+  font-size: large;
+  padding: 7.5px;
+  border: none;
+  font-weight: 500;
+  color: white;
+  border-color: rgb(19, 42, 66);
+}
+
+#shut-down-button {
+  width: auto;
+  height: auto;
+  border-radius: 5px 0px 0px 5px;
+  border-style: solid;
+  border-width: 2px;
+}
+
+#reveal-user-power-actions-more-button {
+  width: 100%;
+  height: 100%;
+  border-style: solid;
+  border-width: 2px 2px 2px 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+#hide-user-power-actions-more-button {
+  width: 100%;
+  height: 100%;
+  font-size: larger;
+  border-style: solid;
+  border-width: 2px 2px 2px 0px;
+  border-radius: 0px 5px 5px 0px;
+}
+
+#user-power-actions-more {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+#revealed-user-power-actions {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 8px);
+  min-width: 160px;
+  padding: 10px 14px;
+  color: white;
+  background: rgba(3, 57, 112, 0.95);
+  border: 1px solid rgba(123, 176, 219, 0.5);
+  border-radius: 6px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}

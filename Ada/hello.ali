@@ -1,0 +1,56 @@
+V "GNAT Lib v16"
+M P W=b
+P ZX
+
+RN
+RV NO_IO
+RV NO_DYNAMIC_SIZED_OBJECTS
+
+U hello%b		hello.adb		1f965924 NE OO SU
+W ada%s			ada.ads			ada.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.img_int%s	s-imgint.ads		s-imgint.ali
+
+D ada.ads		20260810200446 76789da1 ada%s
+D a-except.ads		20260810200446 8699d7ff ada.exceptions%s
+D a-ioexce.ads		20260810200446 40018c65 ada.io_exceptions%s
+D a-stream.ads		20260810200446 cb01a8f8 ada.streams%s
+D a-string.ads		20260810200446 90ac6797 ada.strings%s
+D a-sttebu.ads		20260810200446 f1ad67a2 ada.strings.text_buffers%s
+D a-stuten.ads		20260810200446 c6ced0ae ada.strings.utf_encoding%s
+D a-tags.ads		20260810200446 2dbf449c ada.tags%s
+D a-textio.ads		20260810200446 34ef47de ada.text_io%s
+D a-unccon.ads		20260810200446 0e9b276f ada.unchecked_conversion%s
+D hello.adb		20260917143624 2b791efa hello%b
+D interfac.ads		20260810200446 9111f9c1 interfaces%s
+D i-cstrea.ads		20260810200446 ffd01b9d interfaces.c_streams%s
+D system.ads		20260810200446 e2b7c99d system%s
+D s-conca2.ads		20260810200446 b5fb73f7 system.concat_2%s
+D s-crtl.ads		20260810200446 823b6536 system.crtl%s
+D s-exctab.ads		20260810200446 91bef6ef system.exception_table%s
+D s-ficobl.ads		20260810200446 dc5161d4 system.file_control_block%s
+D s-imagei.ads		20260810200446 11a376a2 system.image_i%s
+D s-imgint.ads		20260810200446 86836590 system.img_int%s
+D s-parame.ads		20260810200446 a1aeab5c system.parameters%s
+D s-putima.ads		20260810200446 1b989439 system.put_images%s
+D s-secsta.ads		20260810200446 578279f5 system.secondary_stack%s
+D s-soflin.ads		20260810200446 5d88fdea system.soft_links%s
+D s-stache.ads		20260810200446 0b81c1fe system.stack_checking%s
+D s-stalib.ads		20260810200446 1c9580f6 system.standard_library%s
+D s-stoele.ads		20260810200446 ccded4e8 system.storage_elements%s
+D s-traent.ads		20260810200446 c81cbf8c system.traceback_entries%s
+D s-unstyp.ads		20260810200446 fa2a7f59 system.unsigned_types%s
+D s-wchcon.ads		20260810200446 d9032363 system.wch_con%s
+G a e
+G c Z b b [hello standard 3 11 none]
+X 1 ada.ads
+18K9*Ada 22e8 11|1r6 1r23
+X 9 a-textio.ads
+58K13*Text_IO 785e16 11|1w10 1r27
+565U14*Put_Line 11|6s7
+X 11 hello.adb
+3U11*Hello 3b11 8l5 8t10
+5i8 i{integer} 6r42
+

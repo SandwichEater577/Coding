@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+div#root {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+div#root > div#desktop-container > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
