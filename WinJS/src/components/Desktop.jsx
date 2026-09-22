@@ -10,11 +10,29 @@ export default function Desktop({
   setUserPowerActionMoreVisible,
 }) {
   function handleClickOutsideWindow(event) {
-    if (!(event.target instanceof Element)) {
+    const target = event.target;
+
+    if (!(target instanceof Element)) {
       return;
     }
 
-    if (event.target.closest(".WinJS-window")) {
+    const clickedInsideWinJS =
+      target.closest(".WinJS-window") ||
+      target.closest(".start-button") ||
+      target.closest("[aria-label='Start']") ||
+      target.closest("#winjs-left-section") ||
+      target.closest("#winjs-right-section") ||
+      target.closest("#user-power-actions-more") ||
+      target.closest(".user-action-button") ||
+      target.closest(".user-power-action-button") ||
+      target.closest("[class*='WinJS']") ||
+      target.closest("[id*='WinJS']") ||
+      target.closest("[data-window='WinJS']") ||
+      target.closest("[data-title-name='WinJS']") ||
+      target.closest("[title='WinJS']") ||
+      target.closest("[aria-label='WinJS']");
+
+    if (clickedInsideWinJS) {
       return;
     }
 

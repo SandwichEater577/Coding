@@ -19,7 +19,6 @@ export default function WinJS({
         </div>
         <div id="user-actions">
           <div id="top-user-actions">
-            <button className="user-action-button">Administator</button>
             <button className="user-action-button">Documents</button>
             <button className="user-action-button">Pictures</button>
             <button className="user-action-button">Music</button>
@@ -28,20 +27,39 @@ export default function WinJS({
             <button className="user-action-button">Games</button>
             <button className="user-action-button">Computer</button>
           </div>
+          <div id="user-actions-divider-1"></div>
+          <div id="user-actions-divider-2"></div>
+          <div id="user-actions-divider-3"></div>
           <div id="bottom-user-actions">
             <button className="user-action-button">Control Panel</button>
-            <button className="user-action-button">
-              Devices &amp; Printers
-            </button>
             <button className="user-action-button">Default Programs</button>
             <button className="user-action-button">Help &amp; Support</button>
           </div>
         </div>
         <div id="user-power-actions">
-          <div>
+          <div id="user-power-actions-container">
             <button className="user-power-action-button" id="shut-down-button">
               Shut Down
             </button>
+            <button
+              id="toggle-user-power-actions-more-button"
+              className="user-power-action-button"
+              onClick={() =>
+                userPowerActionMoreVisible
+                  ? setUserPowerActionMoreVisible(false)
+                  : setUserPowerActionMoreVisible(true)
+              }
+            >
+              {userPowerActionMoreVisible ? ">" : "<"}
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+/*
             <div id="user-power-actions-more">
               {userPowerActionMoreVisible && (
                 <div id="revealed-user-power-actions">
@@ -68,9 +86,4 @@ export default function WinJS({
                 </button>
               )}
             </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+*/
